@@ -1,7 +1,7 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
 
-	config = "ownscripts/ai/test/bt_config.kv3"
+	config = "ownscripts/CS2AI/test/bt_config.kv3"
 	root =
 	{		
 		type = "decorator_repeat"
@@ -20,7 +20,7 @@
 							type = "action_acquire_items"
 							items =
 							[
-                            	"weapon_smokegrenade",
+                            					"weapon_smokegrenade",
 							]
 							remove_all_items = 0
 						}
