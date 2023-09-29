@@ -1,0 +1,123 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	config = "ownscripts/ai/test/bt_config.kv3"
+	root =
+	{		
+		type = "decorator_repeat"
+		child = 
+		{			
+			type = "sequencer"
+			children =
+			[
+				{
+					type = "decorator_succeed"
+					child =
+					{
+						type = "decorator_run_once"
+						child =
+						{
+							type = "action_acquire_items"
+							items =
+							[
+                            	"weapon_smokegrenade",
+							]
+							remove_all_items = 0
+						}
+					}
+				},
+				{
+					type = "action_wait"
+					wait_time_min = 1
+					wait_time_max = 1
+				},
+				{
+					type = "action_move_to"
+					destination = "-2116.464600 993.139038 548.031250"
+					movement_type = "BT_ACTION_MOVETO_RUN"
+					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+					auto_look_adjust = 1
+					damaging_areas_penalty_cost = 0.0
+				},
+				{
+					type = "action_equip_weapon"
+					weapon = "weapon_smokegrenade"
+				},
+				{
+					type = "action_wait"
+					wait_time_min = 0.7
+					wait_time_max = 0.7
+				},
+				{
+					type = "action_crouch"
+				},
+				{
+					type = "action_look_at"
+					input_angles = "-16.500082 -49.476315 0.00000"
+				},				
+				{
+					type = "action_wait"
+					wait_time_min = 0.5
+					wait_time_max = 0.5
+				},
+				{
+					type = "parallel"
+					children =
+						[
+							{
+								type = "sequencer"
+								children =
+								[	
+									{
+										type = "action_standup"
+									},																
+									{
+										type = "action_jump"
+									},
+									{
+										type = "action_crouch"
+									},
+									{
+										type = "action_wait"
+										wait_time_min = 0.5
+										wait_time_max = 0.5
+									},
+								]
+							},
+							{
+								type = "sequencer"
+								children =
+								[	
+									{
+										type = "action_wait"
+										wait_time_min = 0.08
+										wait_time_max = 0.08
+									},								
+									{
+										type = "action_pull_trigger"
+									},
+									{
+										type = "action_wait"
+										wait_time_min = 0.5
+										wait_time_max = 0.5
+									}
+								]
+							}
+						]
+				},
+				{
+					type = "action_move_to"
+					destination = "-2468.187744 360.983673 547.855469"
+					movement_type = "BT_ACTION_MOVETO_RUN"
+					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+					auto_look_adjust = 1
+					damaging_areas_penalty_cost = 0.0
+				},
+				{
+					type = "action_wait"
+					wait_time_min = 0.5
+					wait_time_max = 0.5
+				},											
+			]			
+		}
+	}
+}
