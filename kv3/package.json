@@ -1,0 +1,25 @@
+{
+  "name": "kv3",
+  "displayName": "KeyValues3",
+  "description": "CS2 KeyValues3",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "kv3",
+      "aliases": ["CS2 Key Values 3", "kv3"],
+      "extensions": [".kv3"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "kv3",
+      "scopeName": "source.kv3",
+      "path": "./syntaxes/kv3.tmLanguage.json"
+    }]
+  }
+}
