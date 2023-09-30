@@ -60,7 +60,7 @@
 													items = [ ]
 													// a variable with this name will be saved on that bot.
 													// check with "condition_is_empty".
-													id = "SetupFlashbang1"
+													id = "SetupSmoke0"
 												},
 												{
 													items = [  ]
@@ -86,7 +86,7 @@
 											[
 												{
 													items = [  ]
-													id = "SetupFlashbang1"
+													id = "SetupSmoke0"
 												},
 												{
 													items = [  ]
@@ -150,7 +150,7 @@
 						[
 							{
 								type = "condition_is_empty"
-								input = "SetupFlashbang1"
+								input = "SetupSmoke0"
 								negated = 1
 								child =
 								{
@@ -158,7 +158,7 @@
 									type = "action_custom_buy"
 									item_aliases =
 									[
-										"flashbang"
+										"smokegrenade"									
 									]
 								}
 							},
@@ -203,16 +203,18 @@
 							}
 						]
 					}
-				},
+				},				
 				// now check for the ids with "condition_is_empty"
 				// to make specific bots do the setups you want!
 				{
 					type = "condition_is_empty"
-					input = "SetupFlashbang1"
+					input = "SetupSmoke0"
 					negated = 1
 					child =
 					{
-						type = "action_jump"
+						type = "subtree"
+						file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/bt_midsmoke.kv3"
+						name = "Midsmoke"
 					}
 				},
 				{
@@ -235,12 +237,9 @@
 					negated = 1
 					child =
 					{
-						type = "action_move_to"
-						destination = "1147.901733 -1183.968750 -143.288361"
-						movement_type = "BT_ACTION_MOVETO_RUN"
-						route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-						auto_look_adjust = 1
-						damaging_areas_penalty_cost = 0.0
+						type = "subtree"
+						file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/bt_stairsmoke.kv3"
+						name = "Stairsmoke"
 					}
 				},
 				{
@@ -249,12 +248,9 @@
 					negated = 1
 					child =
 					{
-						type = "action_move_to"
-						destination = "815.470581 -1496.966675 -44.961990"
-						movement_type = "BT_ACTION_MOVETO_RUN"
-						route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-						auto_look_adjust = 1
-						damaging_areas_penalty_cost = 0.0
+						type = "subtree"
+						file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/bt_connectorsmoke.kv3"
+						name = "Connectorsmoke"
 					}
 				},
 				{
@@ -263,7 +259,7 @@
 					negated = 1
 					child =
 					{
-						type = "action_jump"
+						type = "action_crouch"
 					}
 				},
 				{
@@ -272,15 +268,43 @@
 					negated = 1
 					child =
 					{
-						type = "action_crouch"
+						type = "action_jump"
 					}
 				},
-				// be sure to make a backup behavior
-				// if there's a possibility that none of the coodrinated buys can be fulfilled
+				// Else: go to A site
 				{
-					type = "subtree"
-					file = "scripts/ai/modules/bt_look_around.kv3"
-					name = "LookAround"
+					// sequencer: evaluate first to last child, in order
+					type = "sequencer"
+					children =
+					[
+						{
+							type = "action_equip_weapon"
+							weapon = "BEST"
+						},
+						{
+							type = "decorator_random_int"
+							min = 0
+							max = 0
+							output = "BombSiteIndex"
+							child =
+							{
+								type = "action_choose_bomb_site_area"
+								input = "BombSiteIndex"
+								output = "HuntAreas"
+							}
+						},	
+						{
+							type = "action_choose_random_waypoint"
+							input = "HuntAreas"
+							output = "TargetHuntArea"
+						},					
+						{
+							type = "action_move_to"
+							destination = "TargetHuntArea"
+							movement_type = "BT_ACTION_MOVETO_RUN"
+							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+						}
+					]
 				}
 			]
 		}
