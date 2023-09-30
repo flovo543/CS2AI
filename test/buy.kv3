@@ -23,6 +23,12 @@
 								type = "action_set_global_counter"
 								input_name = "'WaitForCoordinatedBuy'"
 								input_value = 1
+							},							
+							{
+								//Plan Execute on A
+								type = "action_set_global_counter"
+								input_name = "'ExecuteOnA'"
+								input_value = 1
 							},
 							{
 								type = "action_wait"
@@ -207,6 +213,12 @@
 				// now check for the ids with "condition_is_empty"
 				// to make specific bots do the setups you want!
 				{
+					
+					//TODO: ORDENTLICH
+					type = "sequencer"
+					children =
+					[
+				{
 					type = "condition_is_empty"
 					input = "SetupSmoke0"
 					negated = 1
@@ -216,6 +228,40 @@
 						file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/bt_midsmoke.kv3"
 						name = "Midsmoke"
 					}
+				},
+				{
+				type = "decorator_repeat"
+				child =
+				{
+					type = "sequencer"
+					children =
+					[
+						{
+							type = "action_equip_weapon"
+							weapon = "BEST"
+						},
+						{
+							type = "action_choose_bomb_site_area"
+							input = "1"
+							output = "HuntAreas"
+						},	
+						{
+							type = "action_choose_random_waypoint"
+							input = "HuntAreas"
+							output = "TargetHuntArea"
+						},					
+						{
+							type = "action_move_to"
+							destination = "TargetHuntArea"
+							movement_type = "BT_ACTION_MOVETO_RUN"
+							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+						}
+					]
+				}
+				}
+					]
+					//END: ORDENTLICH
+
 				},
 				{
 					type = "condition_is_empty"
@@ -273,7 +319,6 @@
 				},
 				// Else: go to A site
 				{
-					// sequencer: evaluate first to last child, in order
 					type = "sequencer"
 					children =
 					[
@@ -282,16 +327,9 @@
 							weapon = "BEST"
 						},
 						{
-							type = "decorator_random_int"
-							min = 0
-							max = 0
-							output = "BombSiteIndex"
-							child =
-							{
-								type = "action_choose_bomb_site_area"
-								input = "BombSiteIndex"
-								output = "HuntAreas"
-							}
+							type = "action_choose_bomb_site_area"
+							input = "1"
+							output = "HuntAreas"
 						},	
 						{
 							type = "action_choose_random_waypoint"
