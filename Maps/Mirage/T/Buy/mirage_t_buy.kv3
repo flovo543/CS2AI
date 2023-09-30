@@ -42,7 +42,7 @@
 											// Full Buy (kevlar + AK + one of each grenade)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
-											save_threshold = 4900
+											save_threshold = 4800
 											id_no_purchase = "DidNotPurchase"
 											purchases =
 											[
@@ -102,7 +102,7 @@
 											// PistolEco (tec9)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
-											save_threshold = 2000
+											save_threshold = 2600
 											id_no_purchase = "DidNotPurchase"
 											purchases =
 											[
@@ -185,7 +185,7 @@
 									type = "action_custom_buy"
 									item_aliases =
 									[
-										"kevlar",
+										"vesthelm",
 										"ak47",
 										"smokegrenade",
 										"flashbang",
@@ -203,7 +203,7 @@
 									type = "action_custom_buy"
 									item_aliases =
 									[
-										"kevlar",
+										"vesthelm",
 										"ak47",
 										"smokegrenade",
 										"flashbang",
@@ -221,7 +221,7 @@
 									type = "action_custom_buy"
 									item_aliases =
 									[
-										"kevlar",
+										"vesthelm",
 										"ak47",
 										"smokegrenade",
 										"flashbang",
@@ -239,7 +239,7 @@
 									type = "action_custom_buy"
 									item_aliases =
 									[
-										"kevlar",
+										"vesthelm",
 										"ak47",
 										"smokegrenade",
 										"flashbang",
@@ -257,12 +257,162 @@
 									type = "action_custom_buy"
 									item_aliases =
 									[
-										"kevlar",
+										"vesthelm",
 										"ak47",
 										"smokegrenade",
 										"flashbang",
 										"flashbang",
 										"molotov"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "GalilUtil1"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"vesthelm",
+										"galilar",
+										"smokegrenade",
+										"flashbang",
+										"flashbang"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "GalilUtil2"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"vesthelm",
+										"galilar",
+										"smokegrenade",
+										"flashbang",
+										"flashbang"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "GalilUtil3"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"vesthelm",
+										"galilar",
+										"smokegrenade",
+										"flashbang",
+										"flashbang"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "GalilUtil4"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"vesthelm",
+										"galilar",
+										"smokegrenade",
+										"flashbang",
+										"flashbang"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "GalilUtil5"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"vesthelm",
+										"galilar",
+										"smokegrenade",
+										"flashbang",
+										"flashbang"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "PistolEco1"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"tec9"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "PistolEco2"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"tec9"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "PistolEco3"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"tec9"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "PistolEco4"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"tec9"
+									]
+								}
+							},
+							{
+								type = "condition_is_empty"
+								input = "PistolEco5"
+								negated = 1
+								child =
+								{
+									type = "action_custom_buy"
+									item_aliases =
+									[
+										"tec9"
 									]
 								}
 							}
