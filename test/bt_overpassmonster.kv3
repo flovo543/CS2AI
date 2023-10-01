@@ -19,7 +19,7 @@
 							type = "action_acquire_items"
 							items =
 							[
-                            	"weapon_smokegrenade",
+								"weapon_smokegrenade",
 							]
 							remove_all_items = 0
 						}
@@ -62,47 +62,47 @@
 				{
 					type = "parallel"
 					children =
-						[
-							{
-								type = "sequencer"
-								children =
-								[	
-									{
-										type = "action_standup"
-									},																
-									{
-										type = "action_jump"
-									},
-									{
-										type = "action_crouch"
-									},
-									{
-										type = "action_wait"
-										wait_time_min = 0.5
-										wait_time_max = 0.5
-									},
-								]
-							},
-							{
-								type = "sequencer"
-								children =
-								[	
-									{
-										type = "action_wait"
-										wait_time_min = 0.08
-										wait_time_max = 0.08
-									},								
-									{
-										type = "action_pull_trigger"
-									},
-									{
-										type = "action_wait"
-										wait_time_min = 0.5
-										wait_time_max = 0.5
-									}
-								]
-							}
-						]
+					[
+						{
+							type = "sequencer"
+							children =
+							[	
+								{
+									type = "action_standup"
+								},																
+								{
+									type = "action_jump"
+								},
+								{
+									type = "action_crouch"
+								},
+								{
+									type = "action_wait"
+									wait_time_min = 0.5
+									wait_time_max = 0.5
+								},
+							]
+						},
+						{
+							type = "sequencer"
+							children =
+							[	
+								{
+									type = "action_wait"
+									wait_time_min = 0.08
+									wait_time_max = 0.08
+								},								
+								{
+									type = "action_pull_trigger"
+								},
+								{
+									type = "action_wait"
+									wait_time_min = 0.5
+									wait_time_max = 0.5
+								}
+							]
+						}
+					]
 				},
 				{
 					type = "action_move_to"

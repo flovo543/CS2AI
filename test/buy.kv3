@@ -8,7 +8,7 @@
 		{
 			type = "selector"
 			children =
-			[
+			[	
 				{ 
 					// with the "domain" set only one bot on the server will run this per round.
 					type = "decorator_run_once"
@@ -213,7 +213,6 @@
 				// now check for the ids with "condition_is_empty"
 				// to make specific bots do the setups you want!
 				{				
-					//TODO: ORDENTLICH
 					type = "sequencer"
 					children =
 					[
@@ -231,36 +230,34 @@
 						{
 							type = "decorator_repeat"
 							child =
-						{
-							type = "sequencer"
-							children =
-							[
 							{
-								type = "action_equip_weapon"
-								weapon = "BEST"
-							},
-							{
-								type = "action_choose_bomb_site_area"
-								input = "1"
-								output = "HuntAreas"
-							},	
-							{
-								type = "action_choose_random_waypoint"
-								input = "HuntAreas"
-								output = "TargetHuntArea"
-							},					
-							{
-								type = "action_move_to"
-								destination = "TargetHuntArea"
-								movement_type = "BT_ACTION_MOVETO_RUN"
-								route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+								type = "sequencer"
+								children =
+								[
+									{
+										type = "action_equip_weapon"
+										weapon = "BEST"
+									},
+									{
+										type = "action_choose_bomb_site_area"
+										input = "1"
+										output = "HuntAreas"
+									},	
+									{
+										type = "action_choose_random_waypoint"
+										input = "HuntAreas"
+										output = "TargetHuntArea"
+									},					
+									{
+										type = "action_move_to"
+										destination = "TargetHuntArea"
+										movement_type = "BT_ACTION_MOVETO_RUN"
+										route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+									}
+								]
 							}
-						]
-					}
-				}
-				]
-					//END: ORDENTLICH
-
+						}  
+					]
 				},
 				{
 					type = "condition_is_empty"

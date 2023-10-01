@@ -6,6 +6,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#comment"
+		},
+		{
 			"include": "#strings"
 		}
 	],
@@ -14,9 +17,13 @@
 			"patterns": [
 				{
 					"name": "keyword.control.kv3",
-					"match": "\\b(if|while|for|return)\\b"
+					"match": "\\b(type|child|children)\\b"
 				}
 			]
+		},
+		"comment": {
+			"name": "comment.line.kv3",
+			"match": "//.*"
 		},
 		"strings": {
 			"name": "string.quoted.double.kv3",

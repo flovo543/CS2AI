@@ -6,11 +6,11 @@
 		type = "decorator_bot_service"
 		memory_to_expire =
 		[
-			{
+			{ 
 				key = "ShortTermAttackMemory"
-				time = 0.7
-				distance = 0
-			},
+				time = 0.7 
+				distance = 0    
+			},  		
 			{
 				key = "LongTermMemory"
 				time = 10
@@ -21,106 +21,106 @@
 				time = 3 
 				distance = 200
 			}
-		]
+		] 
 		child =
 		{
-		type = "selector"
-		children =
-		[
-			{			
-				type = "decorator_run_once"
-				max_attempts = 1
-				child =
-				{
-					type = "sequencer"
-					children =
-					[
-						{
-							type = "decorator_succeed"
-							child =
+			type = "selector"
+			children =
+			[
+				{			
+					type = "decorator_run_once"
+					max_attempts = 1
+					child =
+					{
+						type = "sequencer"
+						children =
+						[
 							{
-								type = "decorator_run_once"
+								type = "decorator_succeed"
 								child =
 								{
-									type = "action_acquire_items"
-									items =
-									[
-                            			"weapon_smokegrenade",
-									]
-									remove_all_items = 0
+									type = "decorator_run_once"
+									child =
+									{
+										type = "action_acquire_items"
+										items =
+										[
+											"weapon_smokegrenade",
+										]
+										remove_all_items = 0
+									}
 								}
-							}
-						},
-						{
-							type = "decorator_succeed"
-							child =
+							},
 							{
-								type = "decorator_run_once"
+								type = "decorator_succeed"
 								child =
 								{
-									type = "action_teleport"
-									destination = "-2611.840820 886.525269 540.031250"
+									type = "decorator_run_once"
+									child =
+									{
+										type = "action_teleport"
+										destination = "-2611.840820 886.525269 540.031250"
+									}
 								}
-							}
-						},
-						{
-							type = "action_move_to"
-							destination = "-1944.876587 833.400452 548.031250"
-							movement_type = "BT_ACTION_MOVETO_RUN"
-							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-							auto_look_adjust = 0
-							damaging_areas_penalty_cost = 0.0
-						},
-						{
-							type = "decorator_succeed"
-							child =
+							},
 							{
-								type = "decorator_run_once"
+								type = "action_move_to"
+								destination = "-1944.876587 833.400452 548.031250"
+								movement_type = "BT_ACTION_MOVETO_RUN"
+								route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+								auto_look_adjust = 0
+								damaging_areas_penalty_cost = 0.0
+							},
+							{
+								type = "decorator_succeed"
 								child =
 								{
-									type = "action_teleport"
-									destination = "-1944.876587 833.400452 548.031250"
+									type = "decorator_run_once"
+									child =
+									{
+										type = "action_teleport"
+										destination = "-1944.876587 833.400452 548.031250"
+									}
 								}
+							},
+							{
+								type = "action_wait"
+								wait_time_min = 0.5
+								wait_time_max = 0.5
+							},
+							{
+								type = "action_look_at"
+								input_angles = "-7.567955 -46.315922 0.000000"
+							},
+							{
+								type = "action_equip_weapon"
+								weapon = "weapon_smokegrenade"
+							},
+							{
+								type = "action_wait"
+								wait_time_min = 1
+								wait_time_max = 1
+							},
+							{
+								type = "action_pull_trigger"
+							},
+							{
+								type = "action_wait"
+								wait_time_min = 1
+								wait_time_max = 1
+							},
+							{
+								type = "action_move_to"
+								destination = "-2468.187744 360.983673 547.855469"
+								movement_type = "BT_ACTION_MOVETO_RUN"
+								route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+								auto_look_adjust = 1
+								damaging_areas_penalty_cost = 0.0
 							}
-						},
-						{
-							type = "action_wait"
-							wait_time_min = 0.5
-							wait_time_max = 0.5
-						},
-						{
-							type = "action_look_at"
-							input_angles = "-7.567955 -46.315922 0.000000"
-						},
-						{
-							type = "action_equip_weapon"
-							weapon = "weapon_smokegrenade"
-						},
-						{
-							type = "action_wait"
-							wait_time_min = 1
-							wait_time_max = 1
-						},
-						{
-							type = "action_pull_trigger"
-						},
-						{
-							type = "action_wait"
-							wait_time_min = 1
-							wait_time_max = 1
-						},
-						{
-							type = "action_move_to"
-							destination = "-2468.187744 360.983673 547.855469"
-							movement_type = "BT_ACTION_MOVETO_RUN"
-							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-							auto_look_adjust = 1
-							damaging_areas_penalty_cost = 0.0
-						}
-					]
-				}			
-			}
-		]
+						]
+					}			
+				}
+			]
 		}
 	}
 }
