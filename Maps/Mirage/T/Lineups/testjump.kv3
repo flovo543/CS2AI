@@ -1,0 +1,101 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	config = "ownscripts/CS2AI/test/bt_config.kv3"
+	root =
+	{		
+		type = "decorator_repeat"
+		child = 
+		{			
+			type = "sequencer"
+			children =
+			[
+				{
+					type = "decorator_succeed"
+					child =
+					{
+						type = "decorator_run_once"
+						child =
+						{
+							type = "action_acquire_items"
+							items =
+							[
+								"weapon_smokegrenade",
+							]
+							remove_all_items = 0
+						}
+					}
+				},
+				{
+					type = "action_wait"
+					wait_time_min = 1
+					wait_time_max = 1
+				},
+				{
+					type = "action_move_to"
+					destination = "1272.387329 71.155960 -103.968750"
+					movement_type = "BT_ACTION_MOVETO_RUN"
+					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+					auto_look_adjust = 1
+					damaging_areas_penalty_cost = 0.0
+				},
+				{
+					type = "action_equip_weapon"
+					weapon = "weapon_smokegrenade"
+				},
+				{
+					type = "action_wait"
+					wait_time_min = 0.7
+					wait_time_max = 0.7
+				},
+				{
+					type = "action_look_at"
+					input_angles = "-48.450302 -156.250702 0.000000"
+				},				
+				{
+					type = "action_wait"
+					wait_time_min = 0.5
+					wait_time_max = 0.5
+				},
+				{
+					type = "parallel"
+					children =
+					[
+						{
+							type = "sequencer"
+							children =
+							[																	
+								{
+									type = "action_jump"
+								},
+								{
+									type = "action_wait"
+									wait_time_min = 0.5
+									wait_time_max = 0.5
+								},
+							]
+						},
+						{
+							type = "sequencer"
+							children =
+							[	
+								{
+									type = "action_wait"
+									wait_time_min = 0.08
+									wait_time_max = 0.08
+								},								
+								{
+									type = "action_pull_trigger"
+								},
+								{
+									type = "action_wait"
+									wait_time_min = 0.5
+									wait_time_max = 0.5
+								}
+							]
+						}
+					]
+				}										
+			]			
+		}
+	}
+}
