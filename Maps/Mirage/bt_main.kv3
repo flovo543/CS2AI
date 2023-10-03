@@ -133,7 +133,7 @@
 									}
 								]
 							},							
-							{
+							{								
 								type = "parallel"
 								children =
 								[						
@@ -199,12 +199,9 @@
 										type = "decorator_repeat"
 										child =
 										{
-											type = "action_move_to"
-											destination = "438.833313 -1438.072998 -111.968750"
-											movement_type = "BT_ACTION_MOVETO_RUN"
-											route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-											auto_look_adjust = 1
-											damaging_areas_penalty_cost = 0.0
+											type = "subtree"
+											file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
+											name = "MemorizeAreaDamageCurrent"
 										}
 									}
 								]

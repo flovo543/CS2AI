@@ -25,6 +25,18 @@
 								input_value = 1
 							},
 							{
+								//Plan Execute on A
+								type = "action_set_global_counter"
+								input_name = "'ExecuteStrategy'"
+								input_value = 1
+							},
+							{
+								//Counter for Ready Exec A
+								type = "action_set_global_counter"
+								input_name = "'ExecuteReady'"
+								input_value = 0
+							},
+							{
 								type = "action_wait"
 								wait_time_min = 1
 								wait_time_max = 1
@@ -411,6 +423,7 @@
 						}
 					},
 					{
+						//TODO: Random Buy? - No nades
 						type = "action_jump"
 					}
 				]

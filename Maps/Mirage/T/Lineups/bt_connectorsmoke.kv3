@@ -9,7 +9,7 @@
 		[
 			{
 				type = "action_compare_global_counter"
-				input_name = "'ExecuteOnA'"
+				input_name = "'ExecuteStrategy'"
 				input_value = 1
 			},	
 			{
