@@ -31,15 +31,9 @@
 								input_value = 1
 							},
 							{
-								//Counter for Join Exec A
-								type = "action_set_global_counter"
-								input_name = "'ExecuteOnAJoin'"
-								input_value = 0
-							},
-							{
 								//Counter for Ready Exec A
 								type = "action_set_global_counter"
-								input_name = "'ExecuteOnAReady'"
+								input_name = "'ExecuteReady'"
 								input_value = 0
 							},
 							{
@@ -58,26 +52,13 @@
 									[
 										{
 											type = "action_coordinated_buy"
-											// team that should coordinte a buy. Works the same as in "decorator_sensor".
 											team_filter = "SAME"
-											// all of the bots on the specified team must have at least this much money.
-											// should be set to the minimum amount of money required to purchase the needed items
-											// in this case the minimum amount of money would be 500, as that's needed
-											// to buy the "SetupSmokeAndFlashbang1".
 											save_threshold = 2000
-											// advised to only be used in fully pve modes,
-											// due to being assigned to the other team as well.
 											id_no_purchase = "DidNotPurchase"
-											// array with purchases.
-											// in this case it needs at least 4 bots on the team in order to go through.
 											purchases =
 											[
 												{
-													// instead of setting up the items here
-													// we'll buy them later
 													items = [ ]
-													// a variable with this name will be saved on that bot.
-													// check with "condition_is_empty".
 													id = "SetupSmoke0"
 												},
 												{
@@ -122,8 +103,6 @@
 											[
 												{
 													items = [  ]
-													// ids don't need to be unique, they are saved as a local variable on
-													// the bot that bought them.
 													id = "SetupNoGrenades"
 												},
 												{
@@ -225,52 +204,15 @@
 				// now check for the ids with "condition_is_empty"
 				// to make specific bots do the setups you want!
 				{				
-					type = "sequencer"
-					children =
-					[
-						{
-							type = "condition_is_empty"
-							input = "SetupSmoke0"
-							negated = 1
-							child =
-							{
-								type = "subtree"
-								file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/bt_midsmoke.kv3"
-								name = "Midsmoke"
-							}
-						},
-						{
-							type = "decorator_repeat"
-							child =
-							{
-								type = "sequencer"
-								children =
-								[
-									{
-										type = "action_equip_weapon"
-										weapon = "BEST"
-									},
-									{
-										//TODO: Hier richtigen input finden
-										type = "action_choose_bomb_site_area"
-										input = "0"
-										output = "HuntAreas"
-									},	
-									{
-										type = "action_choose_random_waypoint"
-										input = "HuntAreas"
-										output = "TargetHuntArea"
-									},					
-									{
-										type = "action_move_to"
-										destination = "TargetHuntArea"
-										movement_type = "BT_ACTION_MOVETO_RUN"
-										route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-									}
-								]
-							}
-						}  
-					]
+					type = "condition_is_empty"
+					input = "SetupSmoke0"
+					negated = 1
+					child =
+					{
+						type = "subtree"
+						file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/bt_midsmoke.kv3"
+						name = "Midsmoke"
+					}
 				},
 				{
 					type = "condition_is_empty"
