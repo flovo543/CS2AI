@@ -32,7 +32,7 @@
 				},
 				{
 					type = "action_move_to"
-					destination = "1272.387329 71.155960 -103.968750"
+					destination = "876.499329 -1036.027466 -195.071655"
 					movement_type = "BT_ACTION_MOVETO_RUN"
 					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 					auto_look_adjust = 1
@@ -49,7 +49,7 @@
 				},
 				{
 					type = "action_look_at"
-					input_angles = "-48.450302 -156.250702 0.000000"
+					input_angles = "-11.904744 -141.817535 0.000000"
 				},				
 				{
 					type = "action_wait"
