@@ -170,9 +170,28 @@
 									[
 										// Item Strategy
 										{
-											type = "subtree"
-											file = "scripts/ai/practice/modules/newplayer_dust2_01/bt_item_strategy.kv3"
-											name = "ItemStrategy"
+											//TODO: Kaufen T
+											type = "condition_is_equal"
+											source = "TeamName"
+											destination = "'T'"
+											child = 
+											{
+												type = "subtree"
+												file = "ownscripts/CS2AI/Maps/Mirage/T/Buy/buy.kv3"
+												name = "BuyT"
+											}
+										},
+										{
+											//TODO: Kaufen CT
+											type = "condition_is_equal"
+											source = "TeamName"
+											destination = "'CT'"
+											child = 
+											{
+												type = "subtree"
+												file = "ownscripts/CS2AI/Maps/Mirage/CT/Buy/buy.kv3"
+												name = "BuyCT"
+											}
 										},
 										{
 											type = "subtree"
