@@ -10,7 +10,7 @@
 			child = 
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Lineups/bt_midsmoke.kv3"
+				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t1.kv3"
 				name = "Midsmoke"
 			}
 		},
@@ -20,12 +20,9 @@
 			destination = "'t_2'"
 			child =
 			{
-				type = "action_move_to"
-				destination = "438.833313 -1438.072998 -111.968750"
-				movement_type = "BT_ACTION_MOVETO_RUN"
-				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-				auto_look_adjust = 1
-				damaging_areas_penalty_cost = 0.0
+				type = "subtree"
+				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t2.kv3"
+				name = "Midsmoke"
 			}
 		},
 		{
@@ -35,8 +32,8 @@
 			child =
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Lineups/bt_stairsmoke.kv3"
-				name = "Stairsmoke"
+				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t3.kv3"
+				name = "Midsmoke"
 			}
 		},
 		{
@@ -46,8 +43,8 @@
 			child =
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Lineups/bt_connectorsmoke.kv3"
-				name = "Connectorsmoke"
+				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t4.kv3"
+				name = "Midsmoke"
 			}
 		},
 		{
@@ -56,7 +53,9 @@
 			destination = "'t_5'"
 			child =
 			{
-				type = "action_crouch"
+				type = "subtree"
+				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t5.kv3"
+				name = "Midsmoke"
 			}
 		},
 		// Else: go to A site

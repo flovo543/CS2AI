@@ -127,7 +127,7 @@
 										child = 
 										{
 											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/Mirage/T/Buy/buy.kv3"
+											file = "ownscripts/CS2AI/Maps/Mirage/CT/Buy/buy.kv3"
 											name = "BuyCT"
 										}
 									}
