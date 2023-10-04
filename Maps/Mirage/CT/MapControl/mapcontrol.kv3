@@ -6,59 +6,59 @@
 		{				
 			type = "condition_is_equal"
 			source = "GroupId"
-			destination = "'t_1'"
+			destination = "'ct_1'"
 			child = 
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t1.kv3"
+				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct1.kv3"
 				name = "Midsmoke"
 			}
 		},
 		{
 			type = "condition_is_equal"
 			source = "GroupId"
-			destination = "'t_2'"
+			destination = "'ct_2'"
 			child =
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t2.kv3"
+				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct2.kv3"
 				name = "Midsmoke"
 			}
 		},
 		{
 			type = "condition_is_equal"
 			source = "GroupId"
-			destination = "'t_3'"
+			destination = "'ct_3'"
 			child =
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t3.kv3"
+				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct3.kv3"
 				name = "Midsmoke"
 			}
 		},
 		{
 			type = "condition_is_equal"
 			source = "GroupId"
-			destination = "'t_4'"
+			destination = "'ct_4'"
 			child =
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t4.kv3"
+				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct4.kv3"
 				name = "Midsmoke"
 			}
 		},
 		{
 			type = "condition_is_equal"
 			source = "GroupId"
-			destination = "'t_5'"
+			destination = "'ct_5'"
 			child =
 			{
 				type = "subtree"
-				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t5.kv3"
+				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct5.kv3"
 				name = "Midsmoke"
 			}
 		},
-		// Else: go to A site
+		// Else: go to random site
 		{
 			type = "sequencer"
 			children =
@@ -68,10 +68,16 @@
 					weapon = "BEST"
 				},
 				{
-					//TODO: Hier richtigen input finden
-					type = "action_choose_bomb_site_area"
-					input = "0"
-					output = "HuntAreas"
+					type = "decorator_random_int"
+					min = 0
+					max = 1
+					output = "BombSiteIndex"
+					child =
+					{
+						type = "action_choose_bomb_site_area"
+						input = "BombSiteIndex"
+						output = "HuntAreas"
+					}
 				},	
 				{
 					type = "action_choose_random_waypoint"

@@ -8,7 +8,6 @@
 			weapon = "BEST"
 		},
 		{
-			//TODO: Hier richtigen input finden
 			type = "action_choose_bomb_site_area"
 			input = "1"
 			output = "HuntAreas"

@@ -107,7 +107,6 @@
 								type = "selector"
 								children =
 								[
-									// Item Strategy
 									{
 										type = "condition_is_equal"
 										source = "TeamName"
@@ -120,7 +119,6 @@
 										}
 									},
 									{
-										//TODO: Kaufen CT
 										type = "condition_is_equal"
 										source = "TeamName"
 										destination = "'CT'"
@@ -199,9 +197,32 @@
 										type = "decorator_repeat"
 										child =
 										{
-											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
-											name = "MemorizeAreaDamageCurrent"
+											type = "selector"
+											children =
+											[
+												{
+													type = "condition_is_equal"
+													source = "TeamName"
+													destination = "'T'"
+													child = 
+													{
+														type = "subtree"
+														file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
+														name = "Execute"
+													}
+												},
+												{
+													type = "condition_is_equal"
+													source = "TeamName"
+													destination = "'CT'"
+													child = 
+													{
+														type = "subtree"
+														file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/mapcontrol.kv3"
+														name = "Execute"
+													}
+												}
+											]
 										}
 									}
 								]
