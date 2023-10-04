@@ -32,7 +32,7 @@
 				},
 				{
 					type = "action_move_to"
-					destination = "-2027.036011 -1995.256470 -239.035187"
+					destination = "-457.920410 676.063293 -13.689774"
 					movement_type = "BT_ACTION_MOVETO_RUN"
 					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 					auto_look_adjust = 1
@@ -46,10 +46,10 @@
 					type = "action_wait"
 					wait_time_min = 0.7
 					wait_time_max = 0.7
-				},
+				},				
 				{
 					type = "action_look_at"
-					input_angles = "-26.716782 10.671620 0.000000"
+					input_angles = "-75.383736 -122.394028 0.000000"
 				},				
 				{
 					type = "action_wait"
@@ -57,43 +57,12 @@
 					wait_time_max = 0.5
 				},
 				{
-					type = "parallel"
-					children =
-					[
-						{
-							type = "sequencer"
-							children =
-							[																	
-								{
-									type = "action_jump"
-								},
-								{
-									type = "action_wait"
-									wait_time_min = 0.5
-									wait_time_max = 0.5
-								},
-							]
-						},
-						{
-							type = "sequencer"
-							children =
-							[	
-								{
-									type = "action_wait"
-									wait_time_min = 0.08
-									wait_time_max = 0.08
-								},								
-								{
-									type = "action_pull_trigger"
-								},
-								{
-									type = "action_wait"
-									wait_time_min = 0.5
-									wait_time_max = 0.5
-								}
-							]
-						}
-					]
+					type = "action_pull_trigger"
+				},
+				{
+					type = "action_wait"
+					wait_time_min = 0.5
+					wait_time_max = 0.5
 				}										
 			]			
 		}
