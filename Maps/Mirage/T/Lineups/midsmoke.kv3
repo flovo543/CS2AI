@@ -1,7 +1,7 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {	
 	type = "decorator_run_once"
-	max_attempts = 5
+	max_attempts = 2
 	child =
 	{
 		type = "sequencer"
@@ -9,12 +9,12 @@
 		[
 			{
 				type = "action_compare_global_counter"
-				input_name = "'ExecuteOnA'"
+				input_name = "'ExecuteStrategy'"
 				input_value = 1
-			},	
+			},		
 			{
 				type = "condition_owns_item"
-				item = "weapon_smokegrenade"			
+				item = "weapon_smokegrenade"
 				child = 
 				{
 					type = "sequencer"
@@ -22,15 +22,7 @@
 					[
 						{
 							type = "action_move_to"
-							destination = "1239.968750 -1253.968750 -87.968750"
-							movement_type = "BT_ACTION_MOVETO_RUN"
-							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-							auto_look_adjust = 1
-							damaging_areas_penalty_cost = 0.0
-						},						
-						{
-							type = "action_move_to"
-							destination = "815.470581 -1496.966675 -44.961990"
+							destination = "1422.968750 -367.911377 -103.968750"
 							movement_type = "BT_ACTION_MOVETO_RUN"
 							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 							auto_look_adjust = 1
@@ -64,7 +56,7 @@
 						},				
 						{
 							type = "action_look_at"
-							input_angles = "-27.467897 -175.263824 0.000000"
+							input_angles = "-48.884029 -175.016159 0.000000"
 						},				
 						{
 							type = "action_wait"
@@ -80,8 +72,8 @@
 							wait_time_max = 0.5
 						}										
 					]	
-				}	
-			}
-		]	
+				}								
+			}	
+		]
 	}
 }

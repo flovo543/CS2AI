@@ -12,7 +12,7 @@
 				{
 					// with the "domain" set only one bot on the server will run this per round.
 					type = "decorator_run_once"
-					domain = "'CoordinatedBuy'"
+					domain = "'CoordinatedBuyCT'"
 					child =
 					{
 						type = "sequencer"
@@ -21,7 +21,7 @@
 							{
 								// set a global variable to make our teammates wait for the coordinated buy.
 								type = "action_set_global_counter"
-								input_name = "'WaitForCoordinatedBuy'"
+								input_name = "'WaitForCoordinatedBuyCT'"
 								input_value = 1
 							},
 							{
@@ -147,7 +147,7 @@
 							},
 							{
 								type = "action_set_global_counter"
-								input_name = "'WaitForCoordinatedBuy'"
+								input_name = "'WaitForCoordinatedBuyCT'"
 								input_value = 0
 							}
 						]
@@ -161,7 +161,7 @@
 				child =
 				{
 					type = "action_compare_global_counter"
-					input_name = "'WaitForCoordinatedBuy'"
+					input_name = "'WaitForCoordinatedBuyCT'"
 					input_value = 0
 				}
 			},

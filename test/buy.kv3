@@ -25,9 +25,9 @@
 								input_value = 1
 							},							
 							{
-								//Plan Execute on A
+								//Plan Execute
 								type = "action_set_global_counter"
-								input_name = "'ExecuteOnA'"
+								input_name = "'ExecuteStrategy'"
 								input_value = 1
 							},
 							{
