@@ -42,7 +42,7 @@
 							{
 								type = "action_compare_global_counter"
 								input_name = "'ExecuteReady'"
-								input_value = -3
+								input_value = -4
 							}
 						},
 						{
