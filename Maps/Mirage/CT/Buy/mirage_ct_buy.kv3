@@ -41,7 +41,7 @@
 										children =
 										[
 											{
-												// Full Buy (kevlar + m4a1-s + one of each grenade)
+												// Full Buy (kevlar + m4a1-s + smoke + molo + kit)
 												type = "action_coordinated_buy"
 												team_filter = "SAME"
 												save_threshold = 5200
@@ -71,7 +71,7 @@
 												]
 											},
 											{
-												// Famas and Utility (kevlar + famas + smoke + flash + flash)
+												// Famas and Utility (kevlar + famas + smoke + kit)
 												type = "action_coordinated_buy"
 												team_filter = "SAME"
 												save_threshold = 3750
@@ -182,10 +182,9 @@
 								item_aliases =
 								[
 									"vesthelm",
-									"m4a1",
+									"m4a1_silencer",
 									"smokegrenade",
-									"flashbang",
-									"flashbang",
+									"defuser",
 									"molotov"
 								]
 							}
@@ -200,10 +199,9 @@
 								item_aliases =
 								[
 									"vesthelm",
-									"m4a1",
+									"m4a1_silencer",
 									"smokegrenade",
-									"flashbang",
-									"flashbang",
+									"defuser",
 									"molotov"
 								]
 							}
@@ -218,10 +216,9 @@
 								item_aliases =
 								[
 									"vesthelm",
-									"m4a1",
+									"m4a1_silencer",
 									"smokegrenade",
-									"flashbang",
-									"flashbang",
+									"defuser",
 									"molotov"
 								]
 							}
@@ -236,10 +233,9 @@
 								item_aliases =
 								[
 									"vesthelm",
-									"m4a1",
+									"m4a1_silencer",
 									"smokegrenade",
-									"flashbang",
-									"flashbang",
+									"defuser",
 									"molotov"
 								]
 							}
@@ -254,10 +250,9 @@
 								item_aliases =
 								[
 									"vesthelm",
-									"m4a1",
+									"m4a1_silencer",
 									"smokegrenade",
-									"flashbang",
-									"flashbang",
+									"defuser",
 									"molotov"
 								]
 							}
@@ -274,8 +269,7 @@
 									"vesthelm",
 									"famas",
 									"smokegrenade",
-									"flashbang",
-									"flashbang"
+									"defuser"
 								]
 							}
 						},
@@ -291,8 +285,7 @@
 									"vesthelm",
 									"famas",
 									"smokegrenade",
-									"flashbang",
-									"flashbang"
+									"defuser"
 								]
 							}
 						},
@@ -308,8 +301,7 @@
 									"vesthelm",
 									"famas",
 									"smokegrenade",
-									"flashbang",
-									"flashbang"
+									"defuser"
 								]
 							}
 						},
@@ -325,8 +317,7 @@
 									"vesthelm",
 									"famas",
 									"smokegrenade",
-									"flashbang",
-									"flashbang"
+									"defuser"
 								]
 							}
 						},
@@ -342,8 +333,7 @@
 									"vesthelm",
 									"famas",
 									"smokegrenade",
-									"flashbang",
-									"flashbang"
+									"defuser"
 								]
 							}
 						},
