@@ -180,10 +180,9 @@
 							item_aliases =
 							[
 								"vesthelm",
-								"m4a1",
+								"m4a1_silencer",
 								"smokegrenade",
-								"flashbang",
-								"flashbang",
+								"defuser",
 								"molotov"
 							]
 						}
@@ -198,10 +197,9 @@
 							item_aliases =
 							[
 								"vesthelm",
-								"m4a1",
+								"m4a1_silencer",
 								"smokegrenade",
-								"flashbang",
-								"flashbang",
+								"defuser",
 								"molotov"
 							]
 						}
@@ -216,10 +214,9 @@
 							item_aliases =
 							[
 								"vesthelm",
-								"m4a1",
+								"m4a1_silencer",
 								"smokegrenade",
-								"flashbang",
-								"flashbang",
+								"defuser",
 								"molotov"
 							]
 						}
@@ -234,10 +231,9 @@
 							item_aliases =
 							[
 								"vesthelm",
-								"m4a1",
+								"m4a1_silencer",
 								"smokegrenade",
-								"flashbang",
-								"flashbang",
+								"defuser",
 								"molotov"
 							]
 						}
@@ -252,10 +248,9 @@
 							item_aliases =
 							[
 								"vesthelm",
-								"m4a1",
+								"m4a1_silencer",
 								"smokegrenade",
-								"flashbang",
-								"flashbang",
+								"defuser",
 								"molotov"
 							]
 						}
@@ -272,8 +267,7 @@
 								"vesthelm",
 								"famas",
 								"smokegrenade",
-								"flashbang",
-								"flashbang"
+								"defuser"
 							]
 						}
 					},
@@ -289,8 +283,7 @@
 								"vesthelm",
 								"famas",
 								"smokegrenade",
-								"flashbang",
-								"flashbang"
+								"defuser"
 							]
 						}
 					},
@@ -306,8 +299,7 @@
 								"vesthelm",
 								"famas",
 								"smokegrenade",
-								"flashbang",
-								"flashbang"
+								"defuser"
 							]
 						}
 					},
@@ -323,8 +315,7 @@
 								"vesthelm",
 								"famas",
 								"smokegrenade",
-								"flashbang",
-								"flashbang"
+								"defuser"
 							]
 						}
 					},
@@ -340,8 +331,7 @@
 								"vesthelm",
 								"famas",
 								"smokegrenade",
-								"flashbang",
-								"flashbang"
+								"defuser"
 							]
 						}
 					},

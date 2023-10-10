@@ -92,13 +92,14 @@
 						},
 						{
 							type = "action_wait"
-							wait_time_min = 1
-							wait_time_max = 1
+							wait_time_min = 0.25
+							wait_time_max = 0.25
 						},
 						{
 							type = "parallel"
 							children =
 							[
+								//TODO: Fake Plant
 								{
 									type = "decorator_maybe"
 									chance = 0.5
@@ -114,7 +115,7 @@
 											{
 												type = "sequencer"
 												children =
-												[
+												[																										
 													{
 														type = "action_wait"
 														wait_time_min = 0.2
