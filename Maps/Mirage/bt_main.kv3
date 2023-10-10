@@ -209,6 +209,11 @@
 														type = "subtree"
 														file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
 														name = "Execute"
+														//params =
+														//{
+															//	key = "BombPlantCoord"
+															//	value = "-497.951294 -2014.250244 -115.968750"
+														//}
 													}
 												},
 												{

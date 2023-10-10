@@ -2,7 +2,7 @@
 {
 	type = "selector"
 	children =
-	[	
+	[			
 		{
 			type = "subtree"
 			file = "ownscripts/CS2AI/Maps/modules/bt_defuse_bomb_if_nearby.kv3"

@@ -23,15 +23,15 @@
 								type = "action_set_global_counter"
 								input_name = "'WaitForCoordinatedBuyT'"
 								input_value = 1
-							},
+							},							
 							{
-								//Plan Execute on A
+								//Plan Execute
 								type = "action_set_global_counter"
 								input_name = "'ExecuteStrategy'"
 								input_value = 1
-							},
+							},							
 							{
-								//Counter for Ready Exec A
+								//Counter for Ready
 								type = "action_set_global_counter"
 								input_name = "'ExecuteReady'"
 								input_value = 0
@@ -427,7 +427,12 @@
 						type = "action_jump"
 					}
 				]
-			}
+			},
+			//{
+				//	type = "action_set_value_vector"								
+				//	key = "BombPlantCoord"
+				//	value = "-497.951294 -2014.250244 -115.968750"
+			//}
 		]
 	}
 }

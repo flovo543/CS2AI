@@ -86,6 +86,7 @@
 									{
 										type = "action_move_to"
 										destination = "TargetArea"
+										//destination = "-497.951294 -2014.250244 -115.968750"
 										movement_type = "BT_ACTION_MOVETO_RUN"
 										route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 										hiding_spot = "HidingSpot"
