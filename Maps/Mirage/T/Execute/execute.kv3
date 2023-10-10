@@ -58,6 +58,22 @@
 				name = "Midsmoke"
 			}
 		},
+		//Bot unspezifisch
+		{
+			type = "subtree"
+			file = "ownscripts/CS2AI/Maps/modules/bt_plant_bomb_if_covered.kv3"
+			name = "PlantIfCovered"
+		},
+		{
+			type = "subtree"
+			file = "ownscripts/CS2AI/Maps/modules/bt_plant_bomb_if_owned.kv3"
+			name = "PlantIfOwned"
+		},
+		{
+			type = "subtree"
+			file = "ownscripts/CS2AI/Maps/modules/bt_pickup_bomb_if_nearby.kv3"
+			name = "PickupBombIfNearby"
+		},
 		// Else: go to A site
 		{
 			type = "sequencer"

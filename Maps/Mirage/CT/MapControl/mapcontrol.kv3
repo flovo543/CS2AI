@@ -58,6 +58,17 @@
 				name = "Midsmoke"
 			}
 		},
+		//Bot unspezifisch
+		{
+			type = "subtree"
+			file = "ownscripts/CS2AI/Maps/modules/bt_defuse_bomb_if_nearby.kv3"
+			name = "DefuseBombIfNearby"
+		},
+		{
+			type = "subtree"
+			file = "ownscripts/CS2AI/Maps/modules/bt_run_to_bomb_if_far_away.kv3"
+			name = "RunToBombIfFarAway"
+		},
 		// Else: go to random site
 		{
 			type = "sequencer"
