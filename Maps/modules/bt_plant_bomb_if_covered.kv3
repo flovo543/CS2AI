@@ -36,92 +36,42 @@
 							check_type = "BT_DECORATOR_TAG_THRESHOLD_AT_LEAST"
 							child =
 							{
-								type = "sequencer"
-								children =
-								[
-									{
-										type = "selector"
-										children =
-										[
-											{
-												type = "sequencer"
-												children =
-												[
-													{
-														type = "condition_is_equal"
-														source = "@mp_plant_c4_anywhere"
-														destination = 1
-													},
-													{
-														type = "action_choose_guardian_bomb_plant_location"
-														output = "TargetArea"
-													}
-												]
-											},
-											{
-												type = "sequencer"
-												children =
-												[
-													{
-														type = "decorator_random_int"
-														min = 0
-														max = 1
-														output = "BombSiteIndex"
-														child =
-														{
-															type = "action_choose_bomb_site_area"
-															input = "BombSiteIndex"
-															output = "BombSiteArea"
-														}
-													},
-													{
-														type = "action_choose_random_waypoint"
-														input = "BombSiteArea"
-														output = "TargetArea"
-													}
-												]
-											}
-										]
-									},
-									{
-										type = "action_move_to"
-										destination = "TargetArea"
-										//destination = "-497.951294 -2014.250244 -115.968750"
-										movement_type = "BT_ACTION_MOVETO_RUN"
-										route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-										hiding_spot = "HidingSpot"
-									},
-									{
-										type = "selector"
-										children =
-										[
-											{
-												type = "condition_is_equal"
-												source = "@mp_plant_c4_anywhere"
-												destination = 1
-											},
-											{
-												type = "condition_is_at_bomb_site"
-											}
-										]
-									},
-									{
-										type = "action_equip_item"
-										item = "weapon_c4"
-									},
-									{
-										type = "action_wait"
-										wait_time_min = 0.5
-										wait_time_max = 0.5
-									},
-									{
-										type = "decorator_repeat"
-										child =
+								type = "decorator_picker_reaction_time"
+								input = "PlantPositions"
+								output = "Plant"
+								child =
+								{
+									type = "sequencer"
+									children =
+									[									
 										{
-											type = "action_pull_trigger"
+											type = "action_move_to"
+											destination = "Plant"										
+											movement_type = "BT_ACTION_MOVETO_RUN"
+											route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+											hiding_spot = "HidingSpot"
+										},
+										{
+											type = "condition_is_at_bomb_site"
+										},
+										{
+											type = "action_equip_item"
+											item = "weapon_c4"
+										},
+										{
+											type = "action_wait"
+											wait_time_min = 0.5
+											wait_time_max = 0.5
+										},
+										{
+											type = "decorator_repeat"
+											child =
+											{
+												type = "action_pull_trigger"
+											}
 										}
-									}
-								]
+									]
+								}
 							}
 						}
 					}

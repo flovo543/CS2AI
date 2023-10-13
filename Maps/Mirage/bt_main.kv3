@@ -88,7 +88,12 @@
 						key = "DamageThroughSmokeMemory"
 						time = 3
 						distance = 0
-					}
+					},
+					//{
+						//	key = "PlantPositions"
+						//	time = 120
+						//	distance = 3000
+					//}
 				]
 				tagged_entities_to_expire =
 				[
@@ -103,6 +108,11 @@
 						type = "sequencer"
 						children = 
 						[
+							//{
+								//	type = "decorator_memory"
+								//	input = "-637.871948 -2210.539795 -115.967697"
+								//	output = "PlantPositions"
+							//},
 							{								
 								type = "selector"
 								children =
@@ -209,11 +219,17 @@
 														type = "subtree"
 														file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
 														name = "Execute"
-														//params =
-														//{
-															//	key = "BombPlantCoord"
-															//	value = "-497.951294 -2014.250244 -115.968750"
-														//}
+														params =
+														[
+															{
+																key = "BombPlantCoordA"
+																value = "-637.871948 -2210.539795 -115.967697"
+															},
+															{
+																key = "BombPlantCoordB"
+																value = "-2038.738892 403.673279 -95.968750"
+															}
+														]
 													}
 												},
 												{

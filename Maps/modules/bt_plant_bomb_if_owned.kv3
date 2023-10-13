@@ -21,72 +21,15 @@
 							weapon = "BEST"
 						},
 						{
-							type = "selector"
-							children =
-							[
-								{
-									type = "sequencer"
-									children =
-									[
-										{
-											type = "condition_is_equal"
-											source = "@mp_plant_c4_anywhere"
-											destination = 1
-										},
-										{
-											type = "action_choose_guardian_bomb_plant_location"
-											output = "TargetArea"
-										}
-									]
-								},
-								{
-									//TODO: Seite zum planten besser auswählen									
-									type = "sequencer"
-									children =
-									[
-										{
-											type = "decorator_random_int"
-											min = 0
-											max = 1
-											output = "BombSiteIndex"
-											child =
-											{
-												type = "action_choose_bomb_site_area"
-												input = "BombSiteIndex"
-												output = "BombSiteArea"
-											}
-										},
-										{
-											type = "action_choose_random_waypoint"
-											input = "BombSiteArea"
-											output = "TargetArea"
-										}
-									]
-								}
-							]
-						},
-						{
 							type = "action_move_to"
-							destination = "TargetArea"
-							//destination = "-497.951294 -2014.250244 -115.968750"
+							destination = "BombPlantCoord"
 							movement_type = "BT_ACTION_MOVETO_RUN"
 							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 							hiding_spot = "HidingSpot"
 							threat = "NearestThreatMemory"
 						},
 						{
-							type = "selector"
-							children =
-							[
-								{
-									type = "condition_is_equal"
-									source = "@mp_plant_c4_anywhere"
-									destination = 1
-								},
-								{
-									type = "condition_is_at_bomb_site"
-								}
-							]
+							type = "condition_is_at_bomb_site"
 						},
 						{
 							type = "action_equip_item"
@@ -104,7 +47,7 @@
 								//TODO: Fake Plant
 								{
 									type = "decorator_maybe"
-									chance = 0.5
+									chance = 0.1
 									child =
 									{
 										type = "decorator_succeed"

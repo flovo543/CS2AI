@@ -23,7 +23,8 @@
 								type = "action_set_global_counter"
 								input_name = "'WaitForCoordinatedBuyT'"
 								input_value = 1
-							},							
+							},	
+							//TODO: Strategie zufällig entscheiden (SUBTREE)					
 							{
 								//Plan Execute
 								type = "action_set_global_counter"
