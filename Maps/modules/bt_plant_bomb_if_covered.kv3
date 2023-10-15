@@ -36,42 +36,85 @@
 							check_type = "BT_DECORATOR_TAG_THRESHOLD_AT_LEAST"
 							child =
 							{
-								type = "decorator_picker_reaction_time"
-								input = "PlantPositions"
-								output = "Plant"
-								child =
-								{
-									type = "sequencer"
-									children =
-									[									
-										{
-											type = "action_move_to"
-											destination = "Plant"										
-											movement_type = "BT_ACTION_MOVETO_RUN"
-											route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-											hiding_spot = "HidingSpot"
-										},
-										{
-											type = "condition_is_at_bomb_site"
-										},
-										{
-											type = "action_equip_item"
-											item = "weapon_c4"
-										},
-										{
-											type = "action_wait"
-											wait_time_min = 0.5
-											wait_time_max = 0.5
-										},
-										{
-											type = "decorator_repeat"
-											child =
+								type = "sequencer"
+								children =
+								[		
+									{
+										type = "selector"
+										children =
+										[
 											{
-												type = "action_pull_trigger"
-											}
+												type = "sequencer"
+												children =
+												[	
+													{
+														type = "selector"
+														children =
+														[
+															//TODO: Mehr Strategies einfügen
+															{
+																type = "action_compare_global_counter"
+																input_name = "'ExecuteStrategy'"
+																input_value = 1
+															},
+														]
+													},
+													{
+														type = "action_move_to"
+														destination = "BombPlantCoordA"										
+														movement_type = "BT_ACTION_MOVETO_RUN"
+														route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+														hiding_spot = "HidingSpot"
+													}
+												]
+											},
+											{
+												//TODO: Das hier kann eigentlich durch nur action_move_to zu BombPlantCoordB ersetzt werden
+												type = "sequencer"
+												children =
+												[	
+													{
+														type = "selector"
+														children =
+														[
+															{
+																type = "action_compare_global_counter"
+																input_name = "'ExecuteStrategy'"
+																input_value = 2
+															},
+														]
+													},
+													{
+														type = "action_move_to"
+														destination = "BombPlantCoordB"										
+														movement_type = "BT_ACTION_MOVETO_RUN"
+														route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+														hiding_spot = "HidingSpot"
+													}
+												]
+											},
+										]
+									},
+									{
+										type = "condition_is_at_bomb_site"
+									},
+									{
+										type = "action_equip_item"
+										item = "weapon_c4"
+									},
+									{
+										type = "action_wait"
+										wait_time_min = 0.5
+										wait_time_max = 0.5
+									},
+									{
+										type = "decorator_repeat"
+										child =
+										{
+											type = "action_pull_trigger"
 										}
-									]
-								}
+									}
+								]
 							}
 						}
 					}

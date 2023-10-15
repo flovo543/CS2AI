@@ -57,49 +57,6 @@
 				file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/t5.kv3"
 				name = "Midsmoke"
 			}
-		},
-		//Bot unspezifisch
-		{
-			//TODO: Muss später anders gemacht werden
-			type = "subtree"
-			file = "ownscripts/CS2AI/Maps/modules/bt_plant_bomb_if_covered.kv3"
-			name = "PlantIfCovered"
-			params = 
-			[
-				{
-					key = "BombPlantCoord"
-					value = "'BombPlantCoordA'"
-				}
-			]
-		},
-		{
-			type = "subtree"
-			file = "ownscripts/CS2AI/Maps/modules/bt_plant_bomb_if_owned.kv3"
-			name = "PlantIfOwned"
-			params = 
-			[
-				{
-					key = "BombPlantCoord"
-					value = "'BombPlantCoordA'"
-				}
-			]
-		},
-		{
-			type = "subtree"
-			file = "ownscripts/CS2AI/Maps/modules/bt_pickup_bomb_if_nearby.kv3"
-			name = "PickupBombIfNearby"
-		},
-		// Else: go to A site
-		{
-			//TODO: action_select_areas_within_radius verwenden
-			type = "decorator_succeed"
-			child = 
-			{
-				type = "action_move_to"
-				destination = "BombPlantCoordA"
-				movement_type = "BT_ACTION_MOVETO_RUN"
-				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-			}
-		}
+		}	
 	]
 }

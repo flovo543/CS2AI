@@ -4,7 +4,7 @@
 	shape =
 	{
 		type = "sensor_shape_sphere"
-		radius = 300
+		radius = 10000
 	}
 	entity_type_filter = "CLASSNAME"
 	orphan_only = 1
@@ -26,18 +26,13 @@
 				negated = 1
 				child =
 				{
-					type = "decorator_try_lock"
-					domain = "'PickupBombIfNearby'"
-					child =
-					{
-						type = "action_move_to"
-						destination = "Bombs"
-						movement_type = "BT_ACTION_MOVETO_RUN"
-						route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-						hiding_spot = "HidingSpot"
-						threat = "NearestThreatMemory"
-						nearest_area_distance_threshold = 20
-					}
+					type = "action_move_to"
+					destination = "Bombs"
+					movement_type = "BT_ACTION_MOVETO_RUN"
+					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+					hiding_spot = "HidingSpot"
+					threat = "NearestThreatMemory"
+					nearest_area_distance_threshold = 20
 				}
 			}
 		}

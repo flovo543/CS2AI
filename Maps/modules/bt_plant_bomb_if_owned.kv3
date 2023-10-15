@@ -21,12 +21,60 @@
 							weapon = "BEST"
 						},
 						{
-							type = "action_move_to"
-							destination = "BombPlantCoord"
-							movement_type = "BT_ACTION_MOVETO_RUN"
-							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-							hiding_spot = "HidingSpot"
-							threat = "NearestThreatMemory"
+							type = "selector"
+							children =
+							[
+								{
+									type = "sequencer"
+									children =
+									[	
+										{
+											type = "selector"
+											children =
+											[
+												//TODO: Mehr Strategies einfügen
+												{
+													type = "action_compare_global_counter"
+													input_name = "'ExecuteStrategy'"
+													input_value = 1
+												},
+											]
+										},
+										{
+											type = "action_move_to"
+											destination = "BombPlantCoordA"										
+											movement_type = "BT_ACTION_MOVETO_RUN"
+											route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+											hiding_spot = "HidingSpot"
+										}
+									]
+								},
+								{
+									//TODO: Das hier kann eigentlich durch nur action_move_to zu BombPlantCoordB ersetzt werden
+									type = "sequencer"
+									children =
+									[	
+										{
+											type = "selector"
+											children =
+											[
+												{
+													type = "action_compare_global_counter"
+													input_name = "'ExecuteStrategy'"
+													input_value = 2
+												},
+											]
+										},
+										{
+											type = "action_move_to"
+											destination = "BombPlantCoordB"										
+											movement_type = "BT_ACTION_MOVETO_RUN"
+											route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+											hiding_spot = "HidingSpot"
+										}
+									]
+								},
+							]
 						},
 						{
 							type = "condition_is_at_bomb_site"
@@ -37,8 +85,8 @@
 						},
 						{
 							type = "action_wait"
-							wait_time_min = 0.25
-							wait_time_max = 0.25
+							wait_time_min = 0.5
+							wait_time_max = 0.5
 						},
 						{
 							type = "parallel"
