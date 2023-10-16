@@ -216,7 +216,7 @@
 															},
 															{															
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/bt_plant_bomb_if_covered.kv3"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_covered.kv3"
 																name = "PlantIfCovered"			
 																params =
 																[
@@ -232,7 +232,7 @@
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/bt_plant_bomb_if_owned.kv3"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_owned.kv3"
 																name = "PlantIfOwned"
 																params =
 																[
@@ -248,44 +248,29 @@
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/bt_pickup_bomb_if_nearby.kv3"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_pickup_bomb_if_nearby.kv3"
 																name = "PickupBombIfNearby"
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/bt_pickup_bomb_if_far_away.kv3"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_pickup_bomb_if_far_away.kv3"
 																name = "PickupBombIfFarAway"
 															},
-															// Else: go to Execute site
 															{
-																//TODO: Auslagern mit Params
-																type = "decorator_succeed"
-																child = 
-																{
-																	type = "sequencer"
-																	children =
-																	[
-																		{
-																			type = "action_select_areas_within_radius"
-																			input = "-517.046631 -2138.276611 -115.968750"
-																			radius = 300
-																			output = "RandomNavzone"
-																		},
-																		{
-																			type = "action_choose_random_waypoint"
-																			input = "RandomNavzone"
-																			output = "RandomPos"
-																		},
-																		{
-																			type = "action_move_to"
-																			destination = "RandomPos"
-																			movement_type = "BT_ACTION_MOVETO_RUN"
-																			route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-																			hiding_spot = "HidingSpot"
-																			threat = "NearestThreatMemory"
-																		}
-																	]
-																}
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_push_side.kv3"
+																name = "PushSide"
+																params =
+																[
+																	{
+																		key = "BombPlantCoordA"
+																		value = "-517.046631 -2138.276611 -115.968750"
+																	},
+																	{
+																		key = "BombPlantCoordB"
+																		value = "-2038.738892 403.673279 -95.968750"
+																	}
+																]
 															}
 														]
 													}

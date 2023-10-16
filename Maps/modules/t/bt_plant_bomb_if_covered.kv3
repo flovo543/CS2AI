@@ -39,6 +39,8 @@
 								type = "sequencer"
 								children =
 								[		
+									//SECTION: SELECT POINT ON PLANT POS (return RandomPos)
+									//TODO: Parameter Radius hinzufügen (aktuell: 50)
 									{
 										type = "selector"
 										children =
@@ -48,52 +50,38 @@
 												children =
 												[	
 													{
-														type = "selector"
-														children =
-														[
-															//TODO: Mehr Strategies einfügen
-															{
-																type = "action_compare_global_counter"
-																input_name = "'ExecuteStrategy'"
-																input_value = 1
-															},
-														]
+														type = "action_compare_global_counter"
+														input_name = "'PlantCoordination'"
+														input_value = 0
 													},
 													{
-														type = "action_move_to"
-														destination = "BombPlantCoordA"										
-														movement_type = "BT_ACTION_MOVETO_RUN"
-														route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-														hiding_spot = "HidingSpot"
+														type = "action_select_areas_within_radius"
+														input = "BombPlantCoordA"
+														radius = 50
+														output = "RandomNavzone"
 													}
 												]
 											},
 											{
-												//TODO: Das hier kann eigentlich durch nur action_move_to zu BombPlantCoordB ersetzt werden
-												type = "sequencer"
-												children =
-												[	
-													{
-														type = "selector"
-														children =
-														[
-															{
-																type = "action_compare_global_counter"
-																input_name = "'ExecuteStrategy'"
-																input_value = 2
-															},
-														]
-													},
-													{
-														type = "action_move_to"
-														destination = "BombPlantCoordB"										
-														movement_type = "BT_ACTION_MOVETO_RUN"
-														route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-														hiding_spot = "HidingSpot"
-													}
-												]
+												type = "action_select_areas_within_radius"
+												input = "BombPlantCoordB"
+												radius = 50
+												output = "RandomNavzone"
 											},
 										]
+									},
+									{
+										type = "action_choose_random_waypoint"
+										input = "RandomNavzone"
+										output = "RandomPos"
+									},
+									//ENDSECTION: SELECT POINT ON PLANT POS
+									{
+										type = "action_move_to"
+										destination = "RandomPos"										
+										movement_type = "BT_ACTION_MOVETO_RUN"
+										route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+										hiding_spot = "HidingSpot"
 									},
 									{
 										type = "condition_is_at_bomb_site"
