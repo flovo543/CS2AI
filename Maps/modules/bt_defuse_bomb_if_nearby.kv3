@@ -33,6 +33,7 @@
 						type = "sequencer"
 						children =
 						[
+							//TODO: Fake Defuse
 							{
 								type = "action_move_to"
 								destination = "PlantedBomb"

@@ -50,8 +50,13 @@
 							{
 								type = "action_compare_global_counter"
 								input_name = "'ExecuteReady'"
-								input_value = -4
+								input_value = -5
 							}
+						},
+						{
+							type = "action_set_global_counter"
+							input_name = "'ExecuteReady'"
+							input_value = -5
 						},
 						{
 							type = "action_equip_weapon"
