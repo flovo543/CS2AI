@@ -102,7 +102,7 @@
 					{
 						type = "sequencer"
 						children = 
-						[													
+						[																			
 							{								
 								type = "selector"
 								children =
@@ -200,6 +200,12 @@
 											type = "selector"
 											children =
 											[
+												//WICHTIG: Das hier schlägt immer fehl, damit zu jedem Tick die Positions gesetzt werden können		
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/Mirage/config.kv3"
+													name = "Config"																												
+												},	
 												{
 													type = "condition_is_equal"
 													source = "TeamName"
@@ -208,7 +214,7 @@
 													{
 														type = "selector"
 														children =
-														[
+														[	
 															{
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
@@ -218,33 +224,11 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_covered.kv3"
 																name = "PlantIfCovered"			
-																params =
-																[
-																	{
-																		key = "BombPlantCoordA"
-																		value = "-517.046631 -2138.276611 -115.968750"
-																	},
-																	{
-																		key = "BombPlantCoordB"
-																		value = "-2038.738892 403.673279 -95.968750"
-																	}
-																]
 															},
 															{
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_owned.kv3"
 																name = "PlantIfOwned"
-																params =
-																[
-																	{
-																		key = "BombPlantCoordA"
-																		value = "-517.046631 -2138.276611 -115.968750"
-																	},
-																	{
-																		key = "BombPlantCoordB"
-																		value = "-2038.738892 403.673279 -95.968750"
-																	}
-																]
 															},
 															{
 																type = "subtree"
@@ -260,17 +244,6 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_push_side.kv3"
 																name = "PushSide"
-																params =
-																[
-																	{
-																		key = "BombPlantCoordA"
-																		value = "-517.046631 -2138.276611 -115.968750"
-																	},
-																	{
-																		key = "BombPlantCoordB"
-																		value = "-2038.738892 403.673279 -95.968750"
-																	}
-																]
 															}
 														]
 													}

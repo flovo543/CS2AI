@@ -39,46 +39,15 @@
 								type = "sequencer"
 								children =
 								[		
-									//SECTION: SELECT POINT ON PLANT POS (return RandomPos)
-									//TODO: Parameter Radius hinzufügen (aktuell: 50)
 									{
-										type = "selector"
-										children =
-										[
-											{
-												type = "sequencer"
-												children =
-												[	
-													{
-														type = "action_compare_global_counter"
-														input_name = "'PlantCoordination'"
-														input_value = 0
-													},
-													{
-														type = "action_select_areas_within_radius"
-														input = "BombPlantCoordA"
-														radius = 50
-														output = "RandomNavzone"
-													}
-												]
-											},
-											{
-												type = "action_select_areas_within_radius"
-												input = "BombPlantCoordB"
-												radius = 50
-												output = "RandomNavzone"
-											},
-										]
+										type = "action_choose_random_waypoint_within_radius"
+										origin = "PlantPosition"
+										output = "RushPoint"
+										radius = 50
 									},
-									{
-										type = "action_choose_random_waypoint"
-										input = "RandomNavzone"
-										output = "RandomPos"
-									},
-									//ENDSECTION: SELECT POINT ON PLANT POS
 									{
 										type = "action_move_to"
-										destination = "RandomPos"										
+										destination = "RushPoint"										
 										movement_type = "BT_ACTION_MOVETO_RUN"
 										route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 										hiding_spot = "HidingSpot"

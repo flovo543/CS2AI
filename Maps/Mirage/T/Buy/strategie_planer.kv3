@@ -10,10 +10,11 @@
 			input_value = 1
 		},
 		{
+			//TODO: Das hier muss auch Initial in bt_main gesetzt werden, da das Gedächtnis des Bots am Ende der Runde resettet wird
 			//TODO: Abhängig von Strategie Plantort zufällig entscheiden	
 			type = "action_set_global_counter"
 			input_name = "'PlantCoordination'"
-			input_value = 1
+			input_value = 0
 		},
 		{
 			//Counter for Ready
