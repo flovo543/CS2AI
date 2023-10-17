@@ -22,6 +22,11 @@
 				children =
 				[
 					{
+						type = "condition_is_empty"
+						global = 1
+						input = "PlantCoordination"					
+					},
+					{
 						type = "action_compare_global_counter"
 						input_name = "'PlantCoordination'"
 						input_value = 0
@@ -37,6 +42,11 @@
 				type = "selector"
 				children =
 				[
+					{
+						type = "condition_is_empty"
+						global = 1
+						input = "PlantCoordination"					
+					},
 					{
 						type = "action_compare_global_counter"
 						input_name = "'PlantCoordination'"

@@ -1,0 +1,65 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "sequencer"
+	children =
+	[
+		//{
+			//TODO: Das hier muss auch Initial in bt_main gesetzt werden, da das Gedächtnis des Bots am Ende der Runde resettet wird
+			//TODO: Abhängig von Strategie Plantort zufällig entscheiden	
+			//type = "action_set_global_counter"
+			//input_name = "'PlantCoordination'"
+			//input_value = 0
+		//},
+		{
+			type = "selector"
+			children =
+			[
+				{
+					//50% Exec on A
+					type = "decorator_maybe"
+					chance = 0.5
+					child =
+					{
+						type = "sequencer"
+						children =
+						[
+							{
+								type = "action_set_global_counter"
+								input_name = "'ExecuteStrategy'"
+								input_value = 1
+							},
+							{
+								type = "action_set_global_counter"
+								input_name = "'PlantCoordination'"
+								input_value = 0
+							}
+						]
+					}
+				},
+				{
+					//Das ist die Backup Strategie (Rush B / no Util usage)
+					type = "sequencer"
+					children =
+					[
+						{
+							type = "action_set_global_counter"
+							input_name = "'ExecuteStrategy'"
+							input_value = 0
+						},
+						{
+							type = "action_set_global_counter"
+							input_name = "'PlantCoordination'"
+							input_value = 1
+						}
+					]
+				}
+			]
+		},
+		{
+			//Counter for Ready
+			type = "action_set_global_counter"
+			input_name = "'ExecuteReady'"
+			input_value = 0
+		}
+	]
+}
