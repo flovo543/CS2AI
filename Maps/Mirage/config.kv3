@@ -59,6 +59,11 @@
 					}
 				]
 			},
+			{	
+				type = "action_set_value_vector"
+				key = "'MidWindow'"
+				value = "-1151.733643 -635.352661 -103.968750"
+			},
 			{
 				type = "action_set_value_float"
 				key = "'RushCenterRadius'"

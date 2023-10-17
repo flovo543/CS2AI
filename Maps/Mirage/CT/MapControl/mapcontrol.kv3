@@ -11,7 +11,7 @@
 			{
 				type = "subtree"
 				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct1.kv3"
-				name = "Midsmoke"
+				name = "ct1"
 			}
 		},
 		{
@@ -22,7 +22,7 @@
 			{
 				type = "subtree"
 				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct2.kv3"
-				name = "Midsmoke"
+				name = "ct2"
 			}
 		},
 		{
@@ -33,7 +33,7 @@
 			{
 				type = "subtree"
 				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct3.kv3"
-				name = "Midsmoke"
+				name = "ct3"
 			}
 		},
 		{
@@ -44,7 +44,7 @@
 			{
 				type = "subtree"
 				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct4.kv3"
-				name = "Midsmoke"
+				name = "ct4"
 			}
 		},
 		{
@@ -55,7 +55,7 @@
 			{
 				type = "subtree"
 				file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/ct5.kv3"
-				name = "Midsmoke"
+				name = "ct5"
 			}
 		},
 		//Bot unspezifisch

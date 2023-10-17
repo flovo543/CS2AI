@@ -1,5 +1,5 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
-{
+{		
 	type = "decorator_run_once"
 	max_attempts = 2
 	child =
@@ -10,23 +10,52 @@
 			{
 				type = "action_equip_weapon"
 				weapon = "BEST"
-			},
-			{
-				type = "action_choose_bomb_site_area"
-				input = "0"
-				output = "HuntAreas"
 			},	
 			{
-				type = "action_choose_random_waypoint"
-				input = "HuntAreas"
-				output = "TargetHuntArea"
-			},					
+				type = "action_choose_random_waypoint_within_radius"
+				origin = "PlantPositionA"
+				output = "ASPOT"
+				radius = 50
+			},
 			{
 				type = "action_move_to"
-				destination = "TargetHuntArea"
+				destination = "ASPOT"										
 				movement_type = "BT_ACTION_MOVETO_RUN"
 				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-			}
+				hiding_spot = "HidingSpot"
+			},	
+			{
+				type = "action_hide"
+				max_range = 500
+				output = "Hide"
+			},
+			{
+				type = "action_move_to"
+				destination = "Hide"										
+				movement_type = "BT_ACTION_MOVETO_RUN"
+				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+				hiding_spot = "HidingSpot"
+			},
+			{
+				type = "sequencer"
+				children =
+				[
+					{
+						type = "decorator_random_approach_point"
+						output = "ApproachPoint"
+					},
+					{
+						type = "action_aim"
+						input = "ApproachPoint"
+						acquire_only = 1
+					}
+				]
+			},
+			{
+				type = "action_wait"
+				wait_time_min = 30
+				wait_time_max = 30
+			}			
 		]
 	}
 }
