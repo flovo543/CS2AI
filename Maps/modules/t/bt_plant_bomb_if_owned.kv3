@@ -32,6 +32,7 @@
 							movement_type = "BT_ACTION_MOVETO_RUN"
 							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 							hiding_spot = "HidingSpot"
+							threat = "NearestThreatMemory"
 						},
 						{
 							type = "condition_is_at_bomb_site"
@@ -49,10 +50,10 @@
 							type = "parallel"
 							children =
 							[
-								//TODO: Fake Plant
 								{
+									//Fake-Plant
 									type = "decorator_maybe"
-									chance = 0.1
+									chance = 0.35
 									child =
 									{
 										type = "decorator_succeed"
@@ -63,21 +64,36 @@
 											destination = 1
 											child =
 											{
-												type = "sequencer"
-												children =
-												[																										
-													{
-														type = "action_wait"
-														wait_time_min = 0.2
-														wait_time_max = 0.3
-													},
-													{
-														type = "action_set_global_flag"
-														name = "'DontPlantBomb'"
-														expiration_time_min = 3
-														expiration_time_max = 5
-													}
-												]
+												type = "condition_is_greater_equal"
+												source = "NumberOfAliveCounterTerrorists"
+												destination = 1
+												child =
+												{
+													type = "sequencer"
+													children =
+													[																										
+														{
+															type = "action_wait"
+															wait_time_min = 0.7
+															wait_time_max = 0.8
+														},													
+														{
+															type = "action_equip_weapon"
+															weapon = "BEST"
+														},
+														{
+															type = "action_wait"
+															wait_time_min = 0.2
+															wait_time_max = 0.3
+														},
+														{
+															type = "action_set_global_flag"
+															name = "'DontPlantBomb'"
+															expiration_time_min = 2
+															expiration_time_max = 5
+														},
+													]
+												}
 											}
 										}
 									}

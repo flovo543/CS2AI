@@ -30,37 +30,81 @@
 					domain = "'DefuseBombIfNearby'"
 					child =
 					{
-						type = "sequencer"
-						children =
-						[
-							//TODO: Fake Defuse
-							{
-								type = "action_move_to"
-								destination = "PlantedBomb"
-								movement_type = "BT_ACTION_MOVETO_RUN"
-								route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-								hiding_spot = "HidingSpot"
-								threat = "NearestThreatMemory"
-								nearest_area_distance_threshold = 20
-								arrival_epsilon = 35
-							},
-							{
-								type = "action_look_at"
-								input_location = "PlantedBomb"
-							},
-							{
-								type = "action_wait"
-								wait_time_min = 0.25
-								wait_time_max = 0.25
-							},
-							{
-								type = "decorator_repeat"
-								child =
+						type = "condition_is_empty"
+						global = 1
+						input = "DontDefuseBomb"
+						child =
+						{
+							type = "sequencer"
+							children =
+							[
 								{
-									type = "action_use"
+									type = "action_move_to"
+									destination = "PlantedBomb"
+									movement_type = "BT_ACTION_MOVETO_RUN"
+									route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+									hiding_spot = "HidingSpot"
+									threat = "NearestThreatMemory"
+									nearest_area_distance_threshold = 20
+									arrival_epsilon = 35
+								},
+								{
+									type = "action_look_at"
+									input_location = "PlantedBomb"
+								},
+								{
+									type = "action_wait"
+									wait_time_min = 0.25
+									wait_time_max = 0.25
+								},
+								{
+									type = "parallel"
+									children =
+									[
+										{
+											//Fake-Defuse
+											type = "decorator_maybe"
+											chance = 0.35 
+											child =
+											{
+												type = "decorator_succeed"
+												child =
+												{
+													type = "condition_is_greater_equal"
+													source = "NumberOfAliveTerrorists"
+													destination = "NumberOfAliveCounterTerrorists"
+													child =
+													{
+														type = "sequencer"
+														children =
+														[																										
+															{
+																type = "action_wait"
+																wait_time_min = 0.3
+																wait_time_max = 0.3
+															},																											
+															{
+																type = "action_set_global_flag"
+																name = "'DontDefuseBomb'"
+																expiration_time_min = 2
+																expiration_time_max = 4
+															},
+														]
+													}
+												}
+											}
+										},
+										{
+											type = "decorator_repeat"
+											child =
+											{
+												type = "action_use"
+											}
+										}
+									]
 								}
-							}
-						]
+							]
+						}
 					}
 				}
 			}

@@ -3,20 +3,13 @@
 	type = "sequencer"
 	children =
 	[
-		//{
-			//TODO: Das hier muss auch Initial in bt_main gesetzt werden, da das Gedächtnis des Bots am Ende der Runde resettet wird
-			//TODO: Abhängig von Strategie Plantort zufällig entscheiden	
-			//type = "action_set_global_counter"
-			//input_name = "'PlantCoordination'"
-			//input_value = 0
-		//},
 		{
 			type = "decorator_succeed"
 			child = 
 			{
 				//50% Exec on A
 				type = "decorator_maybe"
-				chance = 0.5
+				chance = 1
 				child =
 				{
 					type = "sequencer"
@@ -36,7 +29,7 @@
 				}
 			}
 		},
-		//Das ist die Backup Strategie (Rush B / no Util usage)
+		//Das ist die Backup-Strategy (Rush B / no Util usage)
 		{
 			type = "decorator_succeed"
 			child = 

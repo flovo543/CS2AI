@@ -76,7 +76,7 @@
 					{
 						key = "LongTermMemory"
 						time = 10
-						distance = 500
+						distance = 800
 					},
 					{
 						domain = "AllBots"
@@ -145,49 +145,49 @@
 												// memorize enemies through vision
 												{
 													type = "subtree"
-													file = "scripts/ai/modules/bt_memorize_enemies_vision.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_enemies_vision.kv3"
 													name = "MemorizeEnemiesVision"
 												},
 												// memorize noises happening right now
 												{
 													type = "subtree"
-													file = "scripts/ai/modules/bt_memorize_noises.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_noises.kv3"
 													name = "MemorizeNoises"
 												},
 												// record the nearest memorized event to investigate
 												{
 													type = "subtree"
-													file = "scripts/ai/modules/bt_memorize_nearest_investigation.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_nearest_investigation.kv3"
 													name = "MemorizeNearestInvestigation"
 												},
 												// memorize incoming grenades
 												{
 													type = "subtree"
-													file = "scripts/ai/modules/bt_memorize_area_damage_grenades.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_area_damage_grenades.kv3"
 													name = "MemorizeAreaDamageGrenades"
 												},
 												// memorize nearby infernos
 												{
 													type = "subtree"
-													file = "scripts/ai/modules/bt_memorize_area_damage_infernos.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_area_damage_infernos.kv3"
 													name = "MemorizeAreaDamageInfernos"
 												},
 												// memorize incoming damage
 												{
 													type = "subtree"
-													file = "scripts/ai/modules/bt_memorize_damage.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_damage.kv3"
 													name = "MemorizeDamage"
 												},
 												// memorize threats
 												{
 													type = "subtree"
-													file = "scripts/ai/practice/modules/bt_memorize_threats.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_threats.kv3"
 													name = "MemorizeThreats"
 												},
 												// memorize whether we're standing on damaging area
 												{
 													type = "subtree"
-													file = "scripts/ai/modules/bt_memorize_area_damage_current.kv3"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_area_damage_current.kv3"
 													name = "MemorizeAreaDamageCurrent"
 												}
 											]
@@ -203,7 +203,7 @@
 												//WICHTIG: Das hier schlägt immer fehl, damit zu jedem Tick die Positions gesetzt werden können		
 												{
 													type = "subtree"
-													file = "ownscripts/CS2AI/Maps/Mirage/config.kv3"
+													file = "ownscripts/CS2AI/Maps/Mirage/bt_map_config.kv3"
 													name = "Config"																												
 												},	
 												{
