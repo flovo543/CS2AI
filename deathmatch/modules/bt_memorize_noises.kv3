@@ -29,7 +29,6 @@
 				child =
 				{
 					type = "decorator_set_reaction_time"
-					//TODO: Warum muss hier ein Input schon wieder hin?
 					input = "Hearing"
 					child =
 					{

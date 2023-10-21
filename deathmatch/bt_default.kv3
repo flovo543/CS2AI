@@ -73,24 +73,45 @@
 									negated = 1
 									child =
 									{
-										// sequencer: evaluate first to last child, in order
+										//AK / M4 Buy (TODO: AK + Pistol)
 										type = "sequencer"
 										children =
 										[
 											{
-												type = "action_wait"
-												wait_time_min = 0.5
-												wait_time_max = 0.5
+												type = "action_acquire_items"
+												items = [ "weapon_m4a1_silencer" ]
 											},
-											{
-												//TODO: Ersetzen durch AK/M4 Buy
-												type = "action_buy"
-											},
+											//{
+												//	type = "action_acquire_items"
+												//	items = [ "weapon_ak47" ]
+											//},
+											//{
+												//	type = "action_acquire_items"
+												//	items = [ "weapon_fiveseven" ]										
+											//},
 											{
 												type = "decorator_remove_key"
 												input = "ShouldBuy"
 											}
 										]
+										// sequencer: evaluate first to last child, in order
+										//type = "sequencer"
+										//children =
+										//[
+											//	{
+												//		type = "action_wait"
+												//		wait_time_min = 0.5
+												//		wait_time_max = 0.5
+											//	},										
+											//	{
+												//TODO: Ersetzen durch AK/M4 Buy
+												//		type = "action_buy"
+											//	},
+											//	{
+												//		type = "decorator_remove_key"
+												//		input = "ShouldBuy"
+											//	}
+										//]
 									}
 								},														
 								// Else: attack if we see an enemy
@@ -114,7 +135,6 @@
 										{
 											type = "action_aim"
 											input = "Damage"
-											//TODO: Hier 0 testen / kein Unterschied (vlt. bei Sniper)
 											acquire_only = 1
 										}
 									}

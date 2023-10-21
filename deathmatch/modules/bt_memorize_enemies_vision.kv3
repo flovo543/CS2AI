@@ -21,7 +21,6 @@
 			child = 
 			{
 				type = "decorator_set_reaction_time"
-				//TODO: Warum muss hier ein Input hin?
 				input = "Vision"
 				child =
 				{

@@ -33,6 +33,7 @@
 							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 							hiding_spot = "HidingSpot"
 							threat = "NearestThreatMemory"
+							nearest_area_distance_threshold = 20
 						},
 						{
 							type = "condition_is_at_bomb_site"
