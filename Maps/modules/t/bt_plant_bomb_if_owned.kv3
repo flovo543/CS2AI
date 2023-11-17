@@ -124,7 +124,7 @@
 				child =
 				{
 					type = "subtree"
-					file = "scripts/ai/modules/bt_look_around.kv3"
+					file = "ownscripts/CS2AI/Maps/modules/general/bt_look_around.kv3"
 					name = "LookAround"
 				}
 			}

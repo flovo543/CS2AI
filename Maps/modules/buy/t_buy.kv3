@@ -1,0 +1,228 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "decorator_run_once"
+	child =
+	{
+		type = "sequencer"
+		children =
+		[
+			{
+				type = "decorator_succeed"
+				child =
+				{
+					// with the "domain" set only one bot on the server will run this per round.
+					type = "decorator_run_once"
+					domain = "'CoordinatedBuyT'"
+					child =
+					{
+						type = "sequencer"
+						children =
+						[
+							{
+								// set a global variable to make our teammates wait for the coordinated buy.
+								type = "action_set_global_counter"
+								input_name = "'WaitForCoordinatedBuyT'"
+								input_value = 1
+							},												
+							{
+								//Plan Execute
+								type = "subtree"
+								file = "ownscripts/CS2AI/Maps/modules/buy/strategie_planer.kv3"
+								name = "StrategiePlaner"
+							},														
+							{
+								type = "action_wait"
+								wait_time_min = 1
+								wait_time_max = 1
+							},
+							{
+								// continue with the sequencer even if we weren't able to coordinate any buy.
+								type = "decorator_succeed"
+								child =
+								{
+									// when used in a selector coordinated buys that can't be fulfilled will be skipped.
+									type = "selector"
+									children =
+									[
+										{
+											// Full Buy (kevlar + AK)
+											type = "action_coordinated_buy"
+											team_filter = "SAME"
+											save_threshold = 3700
+											id_no_purchase = "DidNotPurchase"
+											purchases =
+											[
+												{
+													items = [  ]
+													id = "FullBuy"
+												},
+												{
+													items = [  ]
+													id = "FullBuy"
+												},
+												{
+													items = [  ]
+													id = "FullBuy"
+												},
+												{
+													items = [  ]
+													id = "FullBuy"
+												},
+												{
+													items = [  ]
+													id = "FullBuy"
+												}
+											]
+										},
+										{
+											// GalilUtil (kevlar + galil)
+											type = "action_coordinated_buy"
+											team_filter = "SAME"
+											save_threshold = 2800
+											id_no_purchase = "DidNotPurchase"
+											purchases =
+											[
+												{
+													items = [  ]
+													id = "GalilUtil"
+												},
+												{
+													items = [  ]
+													id = "GalilUtil"
+												},
+												{
+													items = [  ]
+													id = "GalilUtil"
+												},
+												{
+													items = [  ]
+													id = "GalilUtil"
+												},
+												{
+													items = [  ]
+													id = "GalilUtil"
+												}
+											]
+										},
+										{
+											// PistolEco (tec9)
+											type = "action_coordinated_buy"
+											team_filter = "SAME"
+											save_threshold = 2600
+											id_no_purchase = "DidNotPurchase"
+											purchases =
+											[
+												{
+													items = [  ]
+													id = "PistolEco"
+												},
+												{
+													items = [  ]
+													id = "PistolEco"
+												},
+												{
+													items = [  ]
+													id = "PistolEco"
+												},
+												{
+													items = [  ]
+													id = "PistolEco"
+												},
+												{
+													items = [  ]
+													id = "PistolEco"
+												}
+											]
+										},
+										{
+											// FullEco (glock)
+											type = "action_coordinated_buy"
+											team_filter = "SAME"
+											save_threshold = 0
+											id_no_purchase = "DidNotPurchase"
+											purchases =
+											[
+												{
+													items = [  ]
+													id = "FullEco"
+												}
+											]
+										}
+									]
+								}
+							},
+							{
+								type = "action_set_global_counter"
+								input_name = "'WaitForCoordinatedBuyT'"
+								input_value = 0
+							}
+						]
+					}
+				}
+			},
+			// Wait 4 seconds for the coordinated buy to be done.
+			{
+				type = "decorator_wait_success"
+				timeout = 4
+				child =
+				{
+					type = "action_compare_global_counter"
+					input_name = "'WaitForCoordinatedBuyT'"
+					input_value = 0
+				}
+			},			
+			// alternative method for buying items that avoids the "duplicate buy" bug
+			{
+				type = "selector"
+				children =
+				[
+					{
+						type = "condition_is_empty"
+						input = "FullBuy"
+						negated = 1
+						child =
+						{
+							type = "action_custom_buy"
+							item_aliases =
+							[
+								"vesthelm",
+								"ak47"
+							]
+						}
+					},					
+					{
+						type = "condition_is_empty"
+						input = "GalilUtil"
+						negated = 1
+						child =
+						{
+							type = "action_custom_buy"
+							item_aliases =
+							[
+								"vesthelm",
+								"galilar"
+							]
+						}
+					},					
+					{
+						type = "condition_is_empty"
+						input = "PistolEco"
+						negated = 1
+						child =
+						{
+							type = "action_custom_buy"
+							item_aliases =
+							[
+								"tec9"
+							]
+						}
+					},					
+					{
+						//TODO: Custom Buy if everyone has different money
+						type = "action_jump"
+					}
+				]
+			}
+		]
+	}
+}

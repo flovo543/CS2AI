@@ -1,0 +1,99 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "sequencer"
+	children =
+	[		
+		//Counter for Ready
+		{		
+			type = "action_set_global_counter"
+			input_name = "'ExecuteReady'"
+			input_value = 0
+		},
+		{
+			type = "decorator_succeed"
+			child = 
+			{
+				//Plan Executes: ExecuteStrategy is the unique strategy as an integer / PlantCoordination determines the Plant Spot (0 = A, 1 = B)
+				type = "selector"
+				children =
+				[
+					{
+						//50% Exec on A
+						type = "decorator_maybe"
+						chance = 0.5
+						child =
+						{
+							type = "sequencer"
+							children =
+							[
+								{
+									type = "action_set_global_counter"
+									input_name = "'ExecuteStrategy'"
+									input_value = 1
+								},
+								{
+									type = "action_set_global_counter"
+									input_name = "'PlantCoordination'"
+									input_value = 0
+								}
+							]
+						}
+					},
+					{
+						//25% Exec on A go B
+						type = "decorator_maybe"
+						chance = 0.5
+						child =
+						{
+							type = "sequencer"
+							children =
+							[
+								{
+									type = "action_set_global_counter"
+									input_name = "'ExecuteStrategy'"
+									input_value = 1
+								},
+								{
+									type = "action_set_global_counter"
+									input_name = "'PlantCoordination'"
+									input_value = 1
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		//Das ist die Backup-Strategy (Rush B / no Util usage)
+		{
+			type = "decorator_succeed"
+			child = 
+			{
+				type = "condition_is_empty"
+				global = 1
+				input = "ExecuteStrategy"	
+				child = 
+				{
+					type = "action_set_global_counter"
+					input_name = "'ExecuteStrategy'"
+					input_value = 0
+				}	
+			}			
+		},
+		{
+			type = "decorator_succeed"
+			child = 
+			{
+				type = "condition_is_empty"
+				global = 1
+				input = "PlantCoordination"	
+				child = 
+				{
+					type = "action_set_global_counter"
+					input_name = "'PlantCoordination'"
+					input_value = 1
+				}	
+			}
+		}
+	]
+}

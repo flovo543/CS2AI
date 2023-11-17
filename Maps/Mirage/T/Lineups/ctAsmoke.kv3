@@ -32,23 +32,9 @@
 							type = "action_standup"
 						},
 						{
-							type = "decorator_dec_global_counter"
-							input_name = "'ExecuteReady'"
-						},
-						{
-							type = "decorator_wait_success"
-							timeout = 15
-							child =
-							{
-								type = "action_compare_global_counter"
-								input_name = "'ExecuteReady'"
-								input_value = -5
-							}
-						},
-						{
-							type = "action_set_global_counter"
-							input_name = "'ExecuteReady'"
-							input_value = -5
+							type = "subtree"
+							file = "ownscripts/CS2AI/Maps/modules/t/bt_execute_readyup.kv3"
+							name = "ExecuteReadyup"
 						},
 						{
 							type = "action_equip_weapon"
