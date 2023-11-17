@@ -114,7 +114,7 @@
 										child = 
 										{
 											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/modules/t_buy.kv3"
+											file = "ownscripts/CS2AI/Maps/modules/buy/t_buy.kv3"
 											name = "BuyT"
 										}
 									},
@@ -125,7 +125,7 @@
 										child = 
 										{
 											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/modules/ct_buy.kv3"
+											file = "ownscripts/CS2AI/Maps/modules/buy/ct_buy.kv3"
 											name = "BuyCT"
 										}
 									}
@@ -199,13 +199,7 @@
 										{
 											type = "selector"
 											children =
-											[
-												//WICHTIG: Das hier schlägt immer fehl, damit zu jedem Tick die Positions gesetzt werden können		
-												{
-													type = "subtree"
-													file = "ownscripts/CS2AI/Maps/Mirage/bt_map_config.kv3"
-													name = "Config"																												
-												},	
+											[													
 												{
 													type = "condition_is_equal"
 													source = "TeamName"
@@ -214,12 +208,8 @@
 													{
 														type = "selector"
 														children =
-														[	
-															{
-																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
-																name = "Execute"																												
-															},
+														[		
+															//TODO: Cover if bomb is planted														
 															{															
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_covered.kv3"
@@ -254,9 +244,26 @@
 													destination = "'CT'"
 													child = 
 													{
-														type = "subtree"
-														file = "ownscripts/CS2AI/Maps/Mirage/CT/MapControl/mapcontrol.kv3"
-														name = "Execute"
+														type = "selector"
+														children =
+														[ 
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_nearby.kv3"
+																name = "DefuseBombIfNearby"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_far_away.kv3"
+																name = "DefuseBombIfFarAway"
+															},
+															//Change this to hold site
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_push_side.kv3"
+																name = "PushSide"
+															}
+														]
 													}
 												}
 											]

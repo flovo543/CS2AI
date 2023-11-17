@@ -23,7 +23,13 @@
 								type = "action_set_global_counter"
 								input_name = "'WaitForCoordinatedBuyT'"
 								input_value = 1
-							},																									
+							},												
+							{
+								//Plan Execute
+								type = "subtree"
+								file = "ownscripts/CS2AI/Maps/modules/buy/strategie_planer.kv3"
+								name = "StrategiePlaner"
+							},														
 							{
 								type = "action_wait"
 								wait_time_min = 1

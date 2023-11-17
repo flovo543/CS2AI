@@ -33,7 +33,7 @@
 						},
 						{
 							type = "subtree"
-							file = "ownscripts/CS2AI/Maps/modules/t/bt_execute_readyup.kv3"
+							file = "ownscripts/CS2AI/Maps/Mirage/bt_execute_readyup.kv3"
 							name = "ExecuteReadyup"
 						},
 						{

@@ -114,7 +114,7 @@
 										child = 
 										{
 											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/Mirage/T/Buy/t_buy.kv3"
+											file = "ownscripts/CS2AI/Maps/Mirage/t_buy.kv3"
 											name = "BuyT"
 										}
 									},
@@ -125,7 +125,7 @@
 										child = 
 										{
 											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/Mirage/CT/Buy/ct_buy.kv3"
+											file = "ownscripts/CS2AI/Maps/Mirage/ct_buy.kv3"
 											name = "BuyCT"
 										}
 									}
@@ -215,19 +215,14 @@
 														type = "selector"
 														children =
 														[	
-															{
-																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/Mirage/T/Execute/execute.kv3"
-																name = "Execute"																												
-															},
 															{															
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_covered.kv3"
+																file = "ownscripts/CS2AI/Maps/Mirage/bt_plant_bomb_if_covered.kv3"
 																name = "PlantIfCovered"			
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_owned.kv3"
+																file = "ownscripts/CS2AI/Maps/Mirage/bt_plant_bomb_if_owned.kv3"
 																name = "PlantIfOwned"
 															},
 															{
@@ -242,7 +237,7 @@
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_push_side.kv3"
+																file = "ownscripts/CS2AI/Maps/Mirage/bt_push_side.kv3"
 																name = "PushSide"
 															}
 														]

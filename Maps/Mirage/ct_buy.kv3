@@ -39,67 +39,67 @@
 									children =
 									[
 										{
-											// Full Buy (kevlar + m4a1-s + one of each grenade)
+											// Full Buy (kevlar + m4a1-s + defuser)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
-											save_threshold = 5200
+											save_threshold = 4300
 											id_no_purchase = "DidNotPurchase"
 											purchases =
 											[
 												{
 													items = [  ]
-													id = "FullBuy1"
+													id = "FullBuy"
 												},
 												{
 													items = [  ]
-													id = "FullBuy2"
+													id = "FullBuy"
 												},
 												{
 													items = [  ]
-													id = "FullBuy3"
+													id = "FullBuy"
 												},
 												{
 													items = [  ]
-													id = "FullBuy4"
+													id = "FullBuy"
 												},
 												{
 													items = [  ]
-													id = "FullBuy5"
+													id = "FullBuy"
 												}
 											]
 										},
 										{
-											// Famas and Utility (kevlar + famas + smoke + flash + flash)
+											// Famas and Utility (kevlar + famas + defuser)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
-											save_threshold = 3750
+											save_threshold = 3450
 											id_no_purchase = "DidNotPurchase"
 											purchases =
 											[
 												{
 													items = [  ]
-													id = "FamasUtil1"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "FamasUtil2"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "FamasUtil3"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "FamasUtil4"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "FamasUtil5"
+													id = "FamasUtil"
 												}
 											]
 										},
 										{
-											// Pistol Eco (tec9)
+											// Pistol Eco (fiveseven)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
 											save_threshold = 2600
@@ -108,23 +108,23 @@
 											[
 												{
 													items = [  ]
-													id = "PistolEco1"
+													id = "PistolEco"
 												},
 												{
 													items = [  ]
-													id = "PistolEco2"
+													id = "PistolEco"
 												},
 												{
 													items = [  ]
-													id = "PistolEco3"
+													id = "PistolEco"
 												},
 												{
 													items = [  ]
-													id = "PistolEco4"
+													id = "PistolEco"
 												},
 												{
 													items = [  ]
-													id = "PistolEco5"
+													id = "PistolEco"
 												}
 											]
 										},
@@ -172,7 +172,7 @@
 				[
 					{
 						type = "condition_is_empty"
-						input = "FullBuy1"
+						input = "FullBuy"
 						negated = 1
 						child =
 						{
@@ -181,83 +181,13 @@
 							[
 								"vesthelm",
 								"m4a1_silencer",
-								"smokegrenade",
-								"defuser",
-								"molotov"
+								"defuser"
 							]
 						}
 					},
 					{
 						type = "condition_is_empty"
-						input = "FullBuy2"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"m4a1_silencer",
-								"smokegrenade",
-								"defuser",
-								"molotov"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "FullBuy3"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"m4a1_silencer",
-								"smokegrenade",
-								"defuser",
-								"molotov"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "FullBuy4"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"m4a1_silencer",
-								"smokegrenade",
-								"defuser",
-								"molotov"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "FullBuy5"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"m4a1_silencer",
-								"smokegrenade",
-								"defuser",
-								"molotov"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "FamasUtil1"
+						input = "FamasUtil"
 						negated = 1
 						child =
 						{
@@ -266,78 +196,13 @@
 							[
 								"vesthelm",
 								"famas",
-								"smokegrenade",
 								"defuser"
 							]
 						}
 					},
 					{
 						type = "condition_is_empty"
-						input = "FamasUtil2"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"famas",
-								"smokegrenade",
-								"defuser"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "FamasUtil3"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"famas",
-								"smokegrenade",
-								"defuser"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "FamasUtil4"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"famas",
-								"smokegrenade",
-								"defuser"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "FamasUtil5"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"vesthelm",
-								"famas",
-								"smokegrenade",
-								"defuser"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "PistolEco1"
+						input = "PistolEco"
 						negated = 1
 						child =
 						{
@@ -347,60 +212,9 @@
 								"fiveseven"
 							]
 						}
-					},
+					},					
 					{
-						type = "condition_is_empty"
-						input = "PistolEco2"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"fiveseven"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "PistolEco3"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"fiveseven"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "PistolEco4"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"fiveseven"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "PistolEco5"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"fiveseven"
-							]
-						}
-					},
-					{
+						//TODO: Custom Buy if everyone has different money
 						type = "action_jump"
 					}
 				]
