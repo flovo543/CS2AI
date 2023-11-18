@@ -12,7 +12,7 @@
 				{
 					// with the "domain" set only one bot on the server will run this per round.
 					type = "decorator_run_once"
-					domain = "'CoordinatedBuyT'"
+					domain = "'CoordinatedBuyCT'"
 					child =
 					{
 						type = "sequencer"
@@ -21,9 +21,14 @@
 							{
 								// set a global variable to make our teammates wait for the coordinated buy.
 								type = "action_set_global_counter"
-								input_name = "'WaitForCoordinatedBuyT'"
+								input_name = "'WaitForCoordinatedBuyCT'"
 								input_value = 1
-							},																									
+							},
+							//{
+								//	type = "subtree"
+								//	file = "ownscripts/CS2AI/Maps/modules/buy/bt_set_strategy.kv3"
+								//	name = "SetStrategy"
+							//},
 							{
 								type = "action_wait"
 								wait_time_min = 1
@@ -39,10 +44,10 @@
 									children =
 									[
 										{
-											// Full Buy (kevlar + AK)
+											// Full Buy (kevlar + m4a1-s + defuser)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
-											save_threshold = 3700
+											save_threshold = 4300
 											id_no_purchase = "DidNotPurchase"
 											purchases =
 											[
@@ -69,37 +74,37 @@
 											]
 										},
 										{
-											// GalilUtil (kevlar + galil)
+											// Famas and Utility (kevlar + famas + defuser)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
-											save_threshold = 2800
+											save_threshold = 3450
 											id_no_purchase = "DidNotPurchase"
 											purchases =
 											[
 												{
 													items = [  ]
-													id = "GalilUtil"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "GalilUtil"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "GalilUtil"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "GalilUtil"
+													id = "FamasUtil"
 												},
 												{
 													items = [  ]
-													id = "GalilUtil"
+													id = "FamasUtil"
 												}
 											]
 										},
 										{
-											// PistolEco (tec9)
+											// Pistol Eco (fiveseven)
 											type = "action_coordinated_buy"
 											team_filter = "SAME"
 											save_threshold = 2600
@@ -147,7 +152,7 @@
 							},
 							{
 								type = "action_set_global_counter"
-								input_name = "'WaitForCoordinatedBuyT'"
+								input_name = "'WaitForCoordinatedBuyCT'"
 								input_value = 0
 							}
 						]
@@ -161,10 +166,10 @@
 				child =
 				{
 					type = "action_compare_global_counter"
-					input_name = "'WaitForCoordinatedBuyT'"
+					input_name = "'WaitForCoordinatedBuyCT'"
 					input_value = 0
 				}
-			},			
+			},
 			// alternative method for buying items that avoids the "duplicate buy" bug
 			{
 				type = "selector"
@@ -180,13 +185,14 @@
 							item_aliases =
 							[
 								"vesthelm",
-								"ak47"
+								"m4a1_silencer",
+								"defuser"
 							]
 						}
-					},					
+					},
 					{
 						type = "condition_is_empty"
-						input = "GalilUtil"
+						input = "FamasUtil"
 						negated = 1
 						child =
 						{
@@ -194,10 +200,11 @@
 							item_aliases =
 							[
 								"vesthelm",
-								"galilar"
+								"famas",
+								"defuser"
 							]
 						}
-					},					
+					},
 					{
 						type = "condition_is_empty"
 						input = "PistolEco"
@@ -207,7 +214,7 @@
 							type = "action_custom_buy"
 							item_aliases =
 							[
-								"tec9"
+								"fiveseven"
 							]
 						}
 					},					

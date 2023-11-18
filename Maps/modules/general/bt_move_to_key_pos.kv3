@@ -1,0 +1,78 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "sequencer"
+	children =
+	[
+		//TODO: Add Distance to Site as Decision?	
+		//{
+			//	type = "condition_is_empty"
+			//	global = 1
+			//	input = "BombSiteIndex"	
+			//	child = 
+			//	{
+				//		type = "subtree"
+				//		file = "ownscripts/CS2AI/Maps/modules/buy/bt_set_strategy.kv3"
+				//		name = "SetStrategy"
+			//	}
+		//},			
+		{
+			type = "decorator_random_int"
+			min = 0
+			max = 1
+			output = "BombSiteI"
+			child =
+			{
+				type = "action_choose_bomb_site_area"
+				input = "BombSiteI"
+				output = "HuntAreas"
+			}
+			//type = "action_compare_global_counter"
+			//input_name = "'BombSiteIndex'"
+			//input_value = 0
+			//child = 
+			//{
+				//	type = "action_choose_bomb_site_area"
+				//	input = 0
+				//	output = "HuntAreas"
+			//}
+		//},
+		//{
+			//type = "action_compare_global_counter"
+			//input_name = "'BombSiteIndex'" 
+			//input_value = 1
+			//child = 
+			//{
+				//	type = "action_choose_bomb_site_area"
+				//	input = 1
+				//	output = "HuntAreas"
+			//}
+		},
+		{
+			type = "decorator_sensor"
+			entity_type_filter = "CLASSNAME"
+			output = "HuntAreas"
+			append_items = 1
+			class_name = "hostage_entity"
+		},		
+		//decorator_picker_nearby
+		//{
+			//	type = "decorator_picker_random_by_distance"
+			//	input = "HuntAreas"
+			//	distance_min = 0
+			//	distance_max = 10000
+		//},	
+		{
+			type = "action_choose_random_waypoint"
+			input = "HuntAreas"
+			output = "TargetHuntArea"
+		}, 
+		{
+			type = "action_move_to"
+			destination = "TargetHuntArea"
+			movement_type = "BT_ACTION_MOVETO_RUN"
+			route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+			hiding_spot = "HidingSpot"
+			nearest_area_distance_threshold = 20
+		}
+	]
+}

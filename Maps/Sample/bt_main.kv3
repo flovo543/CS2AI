@@ -114,7 +114,7 @@
 										child = 
 										{
 											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/modules/buy/t_buy.kv3"
+											file = "ownscripts/CS2AI/Maps/modules/buy/bt_t_buy.kv3"
 											name = "BuyT"
 										}
 									},
@@ -125,7 +125,7 @@
 										child = 
 										{
 											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/modules/buy/ct_buy.kv3"
+											file = "ownscripts/CS2AI/Maps/modules/buy/bt_ct_buy.kv3"
 											name = "BuyCT"
 										}
 									}
@@ -209,7 +209,12 @@
 														type = "selector"
 														children =
 														[		
-															//TODO: Cover if bomb is planted														
+															//TODO: Cover if bomb is planted	
+															{															
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted.kv3"
+																name = "CoverIfPlanted"			
+															},													
 															{															
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_covered.kv3"
@@ -257,11 +262,10 @@
 																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_far_away.kv3"
 																name = "DefuseBombIfFarAway"
 															},
-															//Change this to hold site
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_push_side.kv3"
-																name = "PushSide"
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_hold_side.kv3"
+																name = "HoldSide"
 															}
 														]
 													}

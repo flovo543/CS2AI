@@ -39,31 +39,10 @@
 								type = "sequencer"
 								children =
 								[		
-									//TODO: Add Distance to BombPlant as Decision?
 									{
-										type = "decorator_random_int"
-										min = 0
-										max = 1
-										output = "BombSiteIndex"
-										child =
-										{
-											type = "action_choose_bomb_site_area"
-											input = "BombSiteIndex"
-											output = "HuntAreas"
-										}
-									},
-									{
-										type = "action_choose_random_waypoint"
-										input = "HuntAreas"
-										output = "TargetHuntArea"
-									},
-									{
-										type = "action_move_to"
-										destination = "TargetHuntArea"
-										movement_type = "BT_ACTION_MOVETO_RUN"
-										route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-										hiding_spot = "HidingSpot"
-										nearest_area_distance_threshold = 20
+										type = "subtree"
+										file = "ownscripts/CS2AI/Maps/modules/general/bt_move_to_key_pos.kv3"
+										name = "MoveToKeyPos"
 									},
 									{
 										type = "condition_is_at_bomb_site"
