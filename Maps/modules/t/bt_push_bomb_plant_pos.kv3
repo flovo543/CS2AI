@@ -9,32 +9,76 @@
 			weapon = "BEST"
 		},
 		{
-			type = "decorator_random_int"
-			min = 0
-			max = 1
-			output = "BombSiteIndex"
+			type = "condition_is_empty"
+			global = 1
+			input = "PlantCoordination"
+			negated = 1
+		},
+		{
+			type = "decorator_succeed"
 			child =
 			{
-				type = "action_choose_bomb_site_area"
-				input = "BombSiteIndex"
-				output = "HuntAreas"
+				type = "parallel"
+				children =
+				[
+					{
+						type = "decorator_succeed"
+						child =
+						{
+							type = "selector"
+							children =
+							[
+								{
+									type = "action_compare_global_counter"
+									input_name = "'PlantCoordination'"
+									input_value = 0
+								},
+								{
+									type = "action_choose_bomb_site_area"
+									input = 0
+									output = "PlantAreas"
+								}
+							]
+						}
+					},
+					{
+						type = "decorator_succeed"
+						child =
+						{
+							type = "selector"
+							children =
+							[
+								{
+									type = "action_compare_global_counter"
+									input_name = "'PlantCoordination'"
+									input_value = 1
+								},
+								{
+									type = "action_choose_bomb_site_area"
+									input = 1
+									output = "PlantAreas"
+								}
+							]
+						}
+					}
+				]
 			}
 		},
 		{
 			type = "decorator_sensor"
 			entity_type_filter = "CLASSNAME"
-			output = "HuntAreas"
+			output = "PlantAreas"
 			append_items = 1
 			class_name = "hostage_entity"
 		},		
 		{
 			type = "action_choose_random_waypoint"
-			input = "HuntAreas"
-			output = "TargetHuntArea"
+			input = "PlantAreas"
+			output = "PlantPos"
 		}, 		
 		{
 			type = "action_move_to"
-			destination = "TargetHuntArea"
+			destination = "PlantPos"
 			movement_type = "BT_ACTION_MOVETO_RUN"
 			route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 			hiding_spot = "HidingSpot"

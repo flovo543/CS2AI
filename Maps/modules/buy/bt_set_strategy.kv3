@@ -1,44 +1,38 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	type = "decorator_random_int"
-	min = 0
-	max = 1
-	output = "BombSite"
-	child =
-	{
-		type = "sequencer"
-		children =
-		[
+	type = "sequencer"
+	children =
+	[
+		{
+			//Plan Executes: PlantCoordination determines the Plant Spot
+			type = "decorator_succeed"
+			child = 
 			{
-				type = "decorator_succeed"
-				child = 
+				//50% Exec on 0
+				type = "decorator_maybe"
+				chance = 0.5
+				child =
 				{
-					type = "condition_is_equal"
-					source = "BombSite"
-					destination = 0
-					child = 
-					{
-						type = "action_set_global_counter"
-						input_name = "'BombSiteIndex'"
-						input_value = 0
-					}
-				}
-			},
-			{
-				type = "decorator_succeed"
-				child = 
-				{
-					type = "condition_is_equal"
-					source = "BombSite"
-					destination = 1
-					child = 
-					{
-						type = "action_set_global_counter"
-						input_name = "'BombSiteIndex'"
-						input_value = 1
-					}
+					type = "action_set_global_counter"
+					input_name = "'PlantCoordination'"
+					input_value = 0
 				}
 			}
-		]
-	}
+		},
+		{
+			type = "decorator_succeed"
+			child = 
+			{
+				type = "condition_is_empty"
+				global = 1
+				input = "PlantCoordination"	
+				child = 
+				{
+					type = "action_set_global_counter"
+					input_name = "'PlantCoordination'"
+					input_value = 1
+				}	
+			}
+		}
+	]
 }
