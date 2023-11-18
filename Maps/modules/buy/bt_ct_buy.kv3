@@ -24,11 +24,6 @@
 								input_name = "'WaitForCoordinatedBuyCT'"
 								input_value = 1
 							},
-							//{
-								//	type = "subtree"
-								//	file = "ownscripts/CS2AI/Maps/modules/buy/bt_set_strategy.kv3"
-								//	name = "SetStrategy"
-							//},
 							{
 								type = "action_wait"
 								wait_time_min = 1

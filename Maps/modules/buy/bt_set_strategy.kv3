@@ -19,7 +19,7 @@
 					child = 
 					{
 						type = "action_set_global_counter"
-						input_name = "BombSiteIndex"
+						input_name = "'BombSiteIndex'"
 						input_value = 0
 					}
 				}
@@ -34,7 +34,7 @@
 					child = 
 					{
 						type = "action_set_global_counter"
-						input_name = "BombSiteIndex"
+						input_name = "'BombSiteIndex'"
 						input_value = 1
 					}
 				}

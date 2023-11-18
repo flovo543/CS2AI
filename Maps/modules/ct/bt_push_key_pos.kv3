@@ -1,0 +1,54 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	//TODO: Add Distance to Site as Decision? - HOW!	
+	type = "decorator_run_once"
+	child = 
+	{
+		type = "sequencer"
+		children =
+		[			
+			{
+				type = "action_equip_weapon"
+				weapon = "BEST"
+			},
+			{
+				type = "decorator_random_int"
+				min = 0
+				max = 1
+				output = "BombSiteIndex"
+				child =
+				{
+					type = "action_choose_bomb_site_area"
+					input = "BombSiteIndex"
+					output = "HuntAreas"
+				}
+			},
+			{
+				type = "decorator_sensor"
+				entity_type_filter = "CLASSNAME"
+				output = "HuntAreas"
+				append_items = 1
+				class_name = "hostage_entity"
+			},		
+			{
+				type = "action_choose_random_waypoint"
+				input = "HuntAreas"
+				output = "TargetHuntArea"
+			}, 
+			{
+				type = "action_choose_random_waypoint_within_radius"
+				origin = "TargetHuntArea"
+				output = "HidePos"
+				radius = 200
+			},
+			{
+				type = "action_move_to"
+				destination = "HidePos"
+				movement_type = "BT_ACTION_MOVETO_RUN"
+				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+				hiding_spot = "HidingSpot"
+				nearest_area_distance_threshold = 20
+			}
+		]
+	}
+}

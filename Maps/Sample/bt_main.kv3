@@ -199,7 +199,7 @@
 										{
 											type = "selector"
 											children =
-											[													
+											[											
 												{
 													type = "condition_is_equal"
 													source = "TeamName"
@@ -208,8 +208,7 @@
 													{
 														type = "selector"
 														children =
-														[		
-															//TODO: Cover if bomb is planted	
+														[																	
 															{															
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted.kv3"
@@ -262,11 +261,22 @@
 																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_far_away.kv3"
 																name = "DefuseBombIfFarAway"
 															},
+															//Not working correctly
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/ct/bt_hold_side.kv3"
-																name = "HoldSide"
-															}
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_hold_bomb_if_dropped.kv3"
+																name = "HoldBombIfDropped"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_push_key_pos.kv3"
+																name = "PushKeyPos"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_hide_on_side.kv3"
+																name = "HideOnSide"
+															},
 														]
 													}
 												}

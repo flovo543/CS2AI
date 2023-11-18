@@ -41,8 +41,8 @@
 								[		
 									{
 										type = "subtree"
-										file = "ownscripts/CS2AI/Maps/modules/general/bt_move_to_key_pos.kv3"
-										name = "MoveToKeyPos"
+										file = "ownscripts/CS2AI/Maps/modules/t/bt_push_bomb_plant_pos.kv3"
+										name = "PushBombPlantPos"
 									},
 									{
 										type = "condition_is_at_bomb_site"
