@@ -1,6 +1,5 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	//TODO: Add Distance to Site as Decision? - HOW!	
 	type = "decorator_run_once"
 	child = 
 	{
@@ -20,26 +19,19 @@
 				{
 					type = "action_choose_bomb_site_area"
 					input = "BombSiteIndex"
-					output = "HuntAreas"
+					output = "PushAreas"
 				}
 			},
 			{
-				type = "decorator_sensor"
-				entity_type_filter = "CLASSNAME"
-				output = "HuntAreas"
-				append_items = 1
-				class_name = "hostage_entity"
-			},		
-			{
 				type = "action_choose_random_waypoint"
-				input = "HuntAreas"
-				output = "TargetHuntArea"
+				input = "PushAreas"
+				output = "TargetPushArea"
 			}, 
 			{
 				type = "action_choose_random_waypoint_within_radius"
-				origin = "TargetHuntArea"
+				origin = "TargetPushArea"
 				output = "HidePos"
-				radius = 200
+				radius = 400
 			},
 			{
 				type = "action_move_to"

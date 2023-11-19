@@ -16,30 +16,23 @@
 			{
 				type = "action_choose_bomb_site_area"
 				input = "BombSiteIndex"
-				output = "HuntAreas"
+				output = "PushSideAreas"
 			}
-		},
-		{
-			type = "decorator_sensor"
-			entity_type_filter = "CLASSNAME"
-			output = "HuntAreas"
-			append_items = 1
-			class_name = "hostage_entity"
-		},		
+		},	
 		{
 			type = "action_choose_random_waypoint"
-			input = "HuntAreas"
-			output = "TargetHuntArea"
+			input = "PushSideAreas"
+			output = "TargetPushSideArea"
 		}, 
 		{
 			type = "action_choose_random_waypoint_within_radius"
-			origin = "TargetHuntArea"
-			output = "RandomPushPos"
-			radius = 300
+			origin = "TargetPushSideArea"
+			output = "RandomPushSidePos"
+			radius = 500
 		},
 		{
 			type = "action_move_to"
-			destination = "RandomPushPos"
+			destination = "RandomPushSidePos"
 			movement_type = "BT_ACTION_MOVETO_RUN"
 			route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 			hiding_spot = "HidingSpot"

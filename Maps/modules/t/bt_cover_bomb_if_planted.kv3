@@ -1,28 +1,23 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
 	type = "decorator_sensor"
-	shape =
-	{
-		type = "sensor_shape_sphere"
-		radius = 10000
-	}
 	entity_type_filter = "CLASSNAME"
 	orphan_only = 1
-	output = "PlantedBomb"
+	output = "CoverPlantedBomb"
 	class_name = "planted_c4"
 	priority = 1
 	child = 
 	{
 		type = "decorator_ranker_dist"
-		input = "PlantedBomb"
+		input = "CoverPlantedBomb"
 		child =
 		{
 			type = "decorator_picker_max_score"
-			input = "PlantedBomb"
+			input = "CoverPlantedBomb"
 			child =
 			{
 				type = "condition_is_empty"
-				input = "PlantedBomb"
+				input = "CoverPlantedBomb"
 				negated = 1
 				child =
 				{
@@ -31,18 +26,18 @@
 					[
 						{
 							type = "action_select_areas_within_radius"
-							input = "PlantedBomb"
-							radius = 300
-							output = "RandomNavzone"
+							input = "CoverPlantedBomb"
+							radius = 200
+							output = "RandomCoverNavzone"
 						},
 						{
 							type = "action_choose_random_waypoint"
-							input = "RandomNavzone"
-							output = "RandomPos"
+							input = "RandomCoverNavzone"
+							output = "RandomCoverPos"
 						},
 						{
 							type = "action_move_to"
-							destination = "RandomPos"
+							destination = "RandomCoverPos"
 							movement_type = "BT_ACTION_MOVETO_RUN"
 							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 							hiding_spot = "HidingSpot"

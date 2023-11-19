@@ -70,12 +70,12 @@
 					{
 						key = "ShortTermInvestigateMemory"
 						time = 3
-						distance = 200
+						distance = 300
 					},
 					{
 						key = "LongTermMemory"
 						time = 10
-						distance = 800
+						distance = 2000
 					},
 					{
 						domain = "AllBots"
@@ -211,11 +211,6 @@
 												},
 												{
 													type = "subtree"
-													file = "ownscripts/CS2AI/Maps/modules/general/bt_flee_area_damage_threats.kv3"
-													name = "FleeAreaDamageThreats"
-												},
-												{
-													type = "subtree"
 													file = "ownscripts/CS2AI/Maps/modules/general/bt_attack_damage_inflictor_smoke.kv3"
 													name = "AttackDamageInflictorSmoke"
 												},
@@ -223,12 +218,7 @@
 													type = "subtree"
 													file = "ownscripts/CS2AI/Maps/modules/general/bt_clear_threats_within_fov.kv3"
 													name = "ClearThreatsWithinFov"
-												},
-												{
-													type = "subtree"
-													file = "ownscripts/CS2AI/Maps/modules/general/bt_select_nearby_threat.kv3"
-													name = "SelectNearbyThreat"
-												},								
+												},																			
 												{
 													type = "condition_is_equal"
 													source = "TeamName"
@@ -238,11 +228,6 @@
 														type = "selector"
 														children =
 														[																	
-															{															
-																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted.kv3"
-																name = "CoverIfPlanted"			
-															},													
 															{															
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_covered.kv3"
@@ -255,8 +240,13 @@
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/general/bt_investigate_closest_memorized_event.kv3"
-																name = "InvestigateClosestMemorizedEvent"
+																file = "ownscripts/CS2AI/Maps/modules/general/bt_select_nearby_threat.kv3"
+																name = "SelectNearbyThreat"
+															},
+															{															
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted.kv3"
+																name = "CoverIfPlanted"			
 															},
 															{
 																type = "subtree"
@@ -267,6 +257,11 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_pickup_bomb_if_far_away.kv3"
 																name = "PickupBombIfFarAway"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/general/bt_investigate_closest_memorized_event.kv3"
+																name = "InvestigateClosestMemorizedEvent"
 															},
 															{
 																type = "subtree"
@@ -292,14 +287,18 @@
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_far_away.kv3"
-																name = "DefuseBombIfFarAway"
-															},
-															//Not working correctly
-															{
-																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/ct/bt_hold_bomb_if_dropped.kv3"
 																name = "HoldBombIfDropped"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/general/bt_select_nearby_threat.kv3"
+																name = "SelectNearbyThreat"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_far_away.kv3"
+																name = "DefuseBombIfFarAway"
 															},
 															{
 																type = "subtree"

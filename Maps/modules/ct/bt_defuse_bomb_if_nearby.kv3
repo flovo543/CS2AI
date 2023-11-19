@@ -4,25 +4,25 @@
 	shape =
 	{
 		type = "sensor_shape_sphere"
-		radius = 200
+		radius = 300
 	}
 	entity_type_filter = "CLASSNAME"
 	orphan_only = 1
-	output = "PlantedBomb"
+	output = "NearbyPlantedBomb"
 	class_name = "planted_c4"
 	priority = 1
 	child = 
 	{
 		type = "decorator_ranker_dist"
-		input = "PlantedBomb"
+		input = "NearbyPlantedBomb"
 		child =
 		{
 			type = "decorator_picker_max_score"
-			input = "PlantedBomb"
+			input = "NearbyPlantedBomb"
 			child =
 			{
 				type = "condition_is_empty"
-				input = "PlantedBomb"
+				input = "NearbyPlantedBomb"
 				negated = 1
 				child =
 				{
@@ -40,7 +40,7 @@
 							[
 								{
 									type = "action_move_to"
-									destination = "PlantedBomb"
+									destination = "NearbyPlantedBomb"
 									movement_type = "BT_ACTION_MOVETO_RUN"
 									route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 									hiding_spot = "HidingSpot"
@@ -50,7 +50,7 @@
 								},
 								{
 									type = "action_look_at"
-									input_location = "PlantedBomb"
+									input_location = "NearbyPlantedBomb"
 								},
 								{
 									type = "action_wait"
@@ -64,7 +64,7 @@
 										{
 											//Fake-Defuse
 											type = "decorator_maybe"
-											chance = 0.35 
+											chance = 0.30 
 											child =
 											{
 												type = "decorator_succeed"
