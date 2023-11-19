@@ -28,123 +28,7 @@
 								type = "action_wait"
 								wait_time_min = 1
 								wait_time_max = 1
-							},
-							{
-								// continue with the sequencer even if we weren't able to coordinate any buy.
-								type = "decorator_succeed"
-								child =
-								{
-									// when used in a selector coordinated buys that can't be fulfilled will be skipped.
-									type = "selector"
-									children =
-									[
-										{
-											// Full Buy (kevlar + m4a1-s + defuser)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 4300
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												}
-											]
-										},
-										{
-											// Famas and Utility (kevlar + famas + defuser)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 3450
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "FamasUtil"
-												},
-												{
-													items = [  ]
-													id = "FamasUtil"
-												},
-												{
-													items = [  ]
-													id = "FamasUtil"
-												},
-												{
-													items = [  ]
-													id = "FamasUtil"
-												},
-												{
-													items = [  ]
-													id = "FamasUtil"
-												}
-											]
-										},
-										{
-											// Pistol Eco (fiveseven)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 2600
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												}
-											]
-										},
-										{
-											// FullEco (glock)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 0
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "FullEco"
-												}
-											]
-										}
-									]
-								}
-							},
+							},							
 							{
 								type = "action_set_global_counter"
 								input_name = "'WaitForCoordinatedBuyCT'"
@@ -171,9 +55,9 @@
 				children =
 				[
 					{
-						type = "condition_is_empty"
-						input = "FullBuy"
-						negated = 1
+						type = "condition_is_greater_equal"
+						source = "AccountBalance"
+						destination = 3900
 						child =
 						{
 							type = "action_custom_buy"
@@ -181,43 +65,25 @@
 							[
 								"vesthelm",
 								"m4a1_silencer",
-								"defuser"
+								"defuser"								
 							]
 						}
-					},
+					},	
 					{
-						type = "condition_is_empty"
-						input = "FamasUtil"
-						negated = 1
+						type = "condition_is_greater_equal"
+						source = "AccountBalance"
+						destination = 2100
 						child =
 						{
 							type = "action_custom_buy"
 							item_aliases =
 							[
-								"vesthelm",
-								"famas",
-								"defuser"
-							]
-						}
-					},
-					{
-						type = "condition_is_empty"
-						input = "PistolEco"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"fiveseven"
+								"fiveseven",	
+								"vest"						
 							]
 						}
 					},					
-					{
-						//TODO: Custom Buy if everyone has different money
-						type = "action_jump"
-					}
-				]
+				]				
 			}
 		]
 	}

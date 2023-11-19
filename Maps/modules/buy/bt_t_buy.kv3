@@ -35,122 +35,6 @@
 								wait_time_max = 1
 							},
 							{
-								// continue with the sequencer even if we weren't able to coordinate any buy.
-								type = "decorator_succeed"
-								child =
-								{
-									// when used in a selector coordinated buys that can't be fulfilled will be skipped.
-									type = "selector"
-									children =
-									[
-										{
-											// Full Buy (kevlar + AK)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 3700
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												},
-												{
-													items = [  ]
-													id = "FullBuy"
-												}
-											]
-										},
-										{
-											// GalilUtil (kevlar + galil)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 2800
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "GalilUtil"
-												},
-												{
-													items = [  ]
-													id = "GalilUtil"
-												},
-												{
-													items = [  ]
-													id = "GalilUtil"
-												},
-												{
-													items = [  ]
-													id = "GalilUtil"
-												},
-												{
-													items = [  ]
-													id = "GalilUtil"
-												}
-											]
-										},
-										{
-											// PistolEco (tec9)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 2600
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												},
-												{
-													items = [  ]
-													id = "PistolEco"
-												}
-											]
-										},
-										{
-											// FullEco (glock)
-											type = "action_coordinated_buy"
-											team_filter = "SAME"
-											save_threshold = 0
-											id_no_purchase = "DidNotPurchase"
-											purchases =
-											[
-												{
-													items = [  ]
-													id = "FullEco"
-												}
-											]
-										}
-									]
-								}
-							},
-							{
 								type = "action_set_global_counter"
 								input_name = "'WaitForCoordinatedBuyT'"
 								input_value = 0
@@ -176,50 +60,33 @@
 				children =
 				[
 					{
-						type = "condition_is_empty"
-						input = "FullBuy"
-						negated = 1
+						type = "condition_is_greater_equal"
+						source = "AccountBalance"
+						destination = 3700
 						child =
 						{
 							type = "action_custom_buy"
 							item_aliases =
 							[
-								"vesthelm",
-								"ak47"
+								"ak47",
+								"vesthelm"								
 							]
 						}
-					},					
+					},	
 					{
-						type = "condition_is_empty"
-						input = "GalilUtil"
-						negated = 1
+						type = "condition_is_greater_equal"
+						source = "AccountBalance"
+						destination = 2100
 						child =
 						{
 							type = "action_custom_buy"
 							item_aliases =
 							[
-								"vesthelm",
-								"galilar"
+								"tec9",	
+								"vest"						
 							]
 						}
 					},					
-					{
-						type = "condition_is_empty"
-						input = "PistolEco"
-						negated = 1
-						child =
-						{
-							type = "action_custom_buy"
-							item_aliases =
-							[
-								"tec9"
-							]
-						}
-					},					
-					{
-						//TODO: Custom Buy if everyone has different money
-						type = "action_jump"
-					}
 				]
 			}
 		]
