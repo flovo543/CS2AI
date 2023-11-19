@@ -1,0 +1,150 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	config = "ownscripts/CS2AI/zombie/bt_config_OP.kv3"
+	root =
+	{
+		type = "decorator_hiding_spot_service"
+		domain = "AllBots"
+		output_hiding_spot = "HidingSpot"
+		distance_threshold = 800
+		expiration_time = 10
+		child =
+		{
+			type = "decorator_token_service"
+			domain = "'StratTokens'"
+			output_token_name = "GroupId"
+			output_token_domain = "GroupMemberId"
+			config =
+			{
+				tokens =
+				[
+					"t_1",
+					"t_2",
+					"t_3",
+					"t_4",
+					"t_5",
+					"ct_1",
+					"ct_2",
+					"ct_3",
+					"ct_4",
+					"ct_5",
+				]
+				assignments =
+				[
+					[ 1,1,1,1,1,1,1,1,1,1 ],
+				]
+				team_restriction = 
+				[
+					"T",
+					"T",
+					"T",
+					"T",
+					"T",
+					"CT",
+					"CT",
+					"CT",
+					"CT",
+					"CT",
+				]
+			}
+			child =
+			{
+				type = "decorator_bot_service"
+				memory_to_expire =
+				[
+					{
+						key = "AttackMemory"
+						time = 3
+						distance = 0
+					}
+				]
+				tagged_entities_to_expire =
+				[
+					"EngagedEntities"
+				]
+				child =
+				{
+					type = "decorator_buy_service"
+					output = "ShouldBuy"
+					child =
+					{
+						type = "sequencer"
+						children = 
+						[																			
+							{								
+								type = "selector"
+								children =
+								[
+									{
+										type = "condition_is_equal"
+										source = "TeamName"
+										destination = "'T'"
+										child = 
+										{
+											type = "subtree"
+											file = "ownscripts/CS2AI/Maps/modules/buy/bt_t_buy.kv3"
+											name = "BuyT"
+										}
+									},
+									{
+										type = "condition_is_equal"
+										source = "TeamName"
+										destination = "'CT'"
+										child = 
+										{
+											type = "subtree"
+											file = "ownscripts/CS2AI/Maps/modules/buy/bt_ct_buy.kv3"
+											name = "BuyCT"
+										}
+									}
+								]
+							},							
+							{								
+								type = "parallel"
+								children =
+								[						
+									{
+										type = "decorator_repeat"
+										child =
+										{
+											type = "parallel"
+											children =
+											[												
+												// memorize enemies
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/zombie/bt_memorize_enemies.kv3"
+													name = "MemorizeEnemies"
+												}
+											]
+										}
+									},
+									{
+										type = "decorator_repeat"
+										child =
+										{
+											type = "selector"
+											children =
+											[		
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_attack.kv3"
+													name = "Attack"
+												},
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_face_damage_inflictor.kv3"
+													name = "FaceDamageInflictor"
+												}																																						
+											]
+										}
+									}
+								]
+							}
+						]
+					}
+				}
+			}
+		}
+	}
+}

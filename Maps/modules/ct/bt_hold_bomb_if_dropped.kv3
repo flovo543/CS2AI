@@ -4,7 +4,6 @@
 	shape =
 	{
 		type = "sensor_shape_fov"
-		radius = 3000
 	}
 	entity_type_filter = "CLASSNAME"
 	orphan_only = 1
@@ -33,7 +32,7 @@
 							type = "action_choose_random_waypoint_within_radius"
 							origin = "Bombs"
 							output = "BombPos"
-							radius = 100
+							radius = 200
 						},	
 						{
 							type = "action_move_to"
