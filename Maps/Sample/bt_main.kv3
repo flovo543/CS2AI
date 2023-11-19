@@ -199,7 +199,37 @@
 										{
 											type = "selector"
 											children =
-											[											
+											[		
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_attack.kv3"
+													name = "Attack"
+												},
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_face_damage_inflictor.kv3"
+													name = "FaceDamageInflictor"
+												},
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_flee_area_damage_threats.kv3"
+													name = "FleeAreaDamageThreats"
+												},
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_attack_damage_inflictor_smoke.kv3"
+													name = "AttackDamageInflictorSmoke"
+												},
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_clear_threats_within_fov.kv3"
+													name = "ClearThreatsWithinFov"
+												},
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/general/bt_select_nearby_threat.kv3"
+													name = "SelectNearbyThreat"
+												},								
 												{
 													type = "condition_is_equal"
 													source = "TeamName"
@@ -223,6 +253,11 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_owned.kv3"
 																name = "PlantIfOwned"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/general/bt_investigate_closest_memorized_event.kv3"
+																name = "InvestigateClosestMemorizedEvent"
 															},
 															{
 																type = "subtree"
@@ -266,6 +301,11 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/ct/bt_hold_bomb_if_dropped.kv3"
 																name = "HoldBombIfDropped"
+															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/general/bt_investigate_closest_memorized_event.kv3"
+																name = "InvestigateClosestMemorizedEvent"
 															},
 															{
 																type = "subtree"

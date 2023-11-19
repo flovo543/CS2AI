@@ -7,7 +7,7 @@
 			type = "action_equip_weapon"
 			weapon = "BEST"
 		},
-		{
+		{			
 			type = "decorator_random_int"
 			min = 0
 			max = 1
