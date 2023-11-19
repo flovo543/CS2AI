@@ -86,7 +86,10 @@
 								"vest"						
 							]
 						}
-					},					
+					},	
+					{
+						type = "action_crouch"
+					}					
 				]
 			}
 		]
