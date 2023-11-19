@@ -3,26 +3,26 @@
 	type = "decorator_sensor"	
 	entity_type_filter = "PLAYERS"
 	team_filter = "ENEMY"
-	output = "Vision"
+	output = "EnemyPos"
 	priority = 0
 	child = 
 	{
-		type = "decorator_picker_visible"
-		input = "Vision"
-		child = 
+		type = "decorator_set_reaction_time"
+		input = "EnemyPos"
+		child =
 		{
-			type = "decorator_set_reaction_time"
-			input = "Vision"
-			child =
+			type = "decorator_memory"
+			input = "EnemyPos"
+			output = "AttackMemory"
+			child = 
 			{
-				type = "decorator_memory"
-				input = "Vision"
-				output = "ShortTermAttackMemory"
-				child =
+				type = "decorator_picker_visible"
+				input = "EnemyPos"
+				child = 
 				{
 					type = "decorator_memory"
-					input = "Vision"
-					output = "LongTermMemory"
+					input = "EnemyPos"
+					output = "VisibleAttackMemory"
 				}
 			}
 		}

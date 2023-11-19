@@ -1,6 +1,6 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	config = "ownscripts/CS2AI/zombie/bt_config_OP.kv3"
+	config = "ownscripts/CS2AI/zombie/bt_config.kv3"
 	root =
 	{
 		type = "decorator_hiding_spot_service"
@@ -23,15 +23,11 @@
 					"t_3",
 					"t_4",
 					"t_5",
-					"ct_1",
-					"ct_2",
-					"ct_3",
-					"ct_4",
-					"ct_5",
+					"t6",
 				]
 				assignments =
 				[
-					[ 1,1,1,1,1,1,1,1,1,1 ],
+					[ 1,1,1,1,1,1 ],
 				]
 				team_restriction = 
 				[
@@ -40,11 +36,7 @@
 					"T",
 					"T",
 					"T",
-					"CT",
-					"CT",
-					"CT",
-					"CT",
-					"CT",
+					"T",	
 				]
 			}
 			child =
@@ -54,6 +46,11 @@
 				[
 					{
 						key = "AttackMemory"
+						time = 0.3
+						distance = 0
+					},
+					{
+						key = "VisibleAttackMemory"
 						time = 3
 						distance = 0
 					}
@@ -70,35 +67,11 @@
 					{
 						type = "sequencer"
 						children = 
-						[																			
-							{								
-								type = "selector"
-								children =
-								[
-									{
-										type = "condition_is_equal"
-										source = "TeamName"
-										destination = "'T'"
-										child = 
-										{
-											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/modules/buy/bt_t_buy.kv3"
-											name = "BuyT"
-										}
-									},
-									{
-										type = "condition_is_equal"
-										source = "TeamName"
-										destination = "'CT'"
-										child = 
-										{
-											type = "subtree"
-											file = "ownscripts/CS2AI/Maps/modules/buy/bt_ct_buy.kv3"
-											name = "BuyCT"
-										}
-									}
-								]
-							},							
+						[		
+							{
+								type = "action_equip_weapon"
+								weapon = "BEST"
+							},																															
 							{								
 								type = "parallel"
 								children =
@@ -107,38 +80,32 @@
 										type = "decorator_repeat"
 										child =
 										{
-											type = "parallel"
-											children =
-											[												
-												// memorize enemies
-												{
-													type = "subtree"
-													file = "ownscripts/CS2AI/zombie/bt_memorize_enemies.kv3"
-													name = "MemorizeEnemies"
-												}
-											]
+											// memorize enemies
+											type = "subtree"
+											file = "ownscripts/CS2AI/zombie/bt_memorize_enemies.kv3"
+											name = "MemorizeEnemies"
 										}
 									},
 									{
 										type = "decorator_repeat"
 										child =
 										{
-											type = "selector"
-											children =
-											[		
-												{
-													type = "subtree"
-													file = "ownscripts/CS2AI/Maps/modules/general/bt_attack.kv3"
-													name = "Attack"
-												},
-												{
-													type = "subtree"
-													file = "ownscripts/CS2AI/Maps/modules/general/bt_face_damage_inflictor.kv3"
-													name = "FaceDamageInflictor"
-												}																																						
-											]
+											//Run to enemy
+											type = "subtree"
+											file = "ownscripts/CS2AI/zombie/bt_run_to_enemies.kv3"
+											name = "RunToEnemy"
 										}
-									}
+									},
+									{
+										type = "decorator_repeat"
+										child =
+										{
+											//Attack
+											type = "subtree"
+											file = "ownscripts/CS2AI/zombie/bt_attack_enemies.kv3"
+											name = "AttackEnemy"
+										}
+									},
 								]
 							}
 						]
