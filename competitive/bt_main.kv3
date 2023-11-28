@@ -1,6 +1,6 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	config = "ownscripts/CS2AI/competitive/bt_config_OP.kv3"
+	config = "ownscripts/CS2AI/competitive/bt_config.kv3"
 	root =
 	{
 		type = "decorator_hiding_spot_service"
@@ -23,15 +23,25 @@
 					"t_3",
 					"t_4",
 					"t_5",
+					"t_6",
+					"t_7",
+					"t_8",
+					"t_9",
+					"t_10",
 					"ct_1",
 					"ct_2",
 					"ct_3",
 					"ct_4",
 					"ct_5",
+					"ct_6",
+					"ct_7",
+					"ct_8",
+					"ct_9",
+					"ct_10",
 				]
 				assignments =
 				[
-					[ 1,1,1,1,1,1,1,1,1,1 ],
+					[ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 ],
 				]
 				team_restriction = 
 				[
@@ -40,6 +50,16 @@
 					"T",
 					"T",
 					"T",
+					"T",
+					"T",
+					"T",
+					"T",
+					"T",
+					"CT",
+					"CT",
+					"CT",
+					"CT",
+					"CT",
 					"CT",
 					"CT",
 					"CT",
@@ -70,12 +90,12 @@
 					{
 						key = "ShortTermInvestigateMemory"
 						time = 3
-						distance = 300
+						distance = 600
 					},
 					{
 						key = "LongTermMemory"
 						time = 10
-						distance = 2000
+						distance = 2500
 					},
 					{
 						domain = "AllBots"
@@ -86,6 +106,11 @@
 					{
 						key = "DamageThroughSmokeMemory"
 						time = 3
+						distance = 0
+					},
+					{
+						key = "BombMemory"
+						time = 25
 						distance = 0
 					}
 				]
@@ -188,6 +213,12 @@
 													type = "subtree"
 													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_area_damage_current.kv3"
 													name = "MemorizeAreaDamageCurrent"
+												},
+												// memorize dropped bomb position
+												{
+													type = "subtree"
+													file = "ownscripts/CS2AI/Maps/modules/memory/bt_memorize_bomb.kv3"
+													name = "MemorizeBomb"
 												}
 											]
 										}
@@ -243,6 +274,16 @@
 																file = "ownscripts/CS2AI/Maps/modules/general/bt_select_nearby_threat.kv3"
 																name = "SelectNearbyThreat"
 															},
+															{
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/general/bt_investigate_closest_memorized_event.kv3"
+																name = "InvestigateClosestMemorizedEvent"
+															},
+															{															
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted_nearby.kv3"
+																name = "CoverIfPlantedNearby"			
+															},
 															{															
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted.kv3"
@@ -257,11 +298,6 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_pickup_bomb_if_far_away.kv3"
 																name = "PickupBombIfFarAway"
-															},
-															{
-																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/general/bt_investigate_closest_memorized_event.kv3"
-																name = "InvestigateClosestMemorizedEvent"
 															},
 															{
 																type = "subtree"
@@ -287,6 +323,11 @@
 															},
 															{
 																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_far_away.kv3"
+																name = "DefuseBombIfFarAway"
+															},
+															{
+																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/ct/bt_hold_bomb_if_dropped.kv3"
 																name = "HoldBombIfDropped"
 															},
@@ -294,11 +335,6 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/general/bt_select_nearby_threat.kv3"
 																name = "SelectNearbyThreat"
-															},
-															{
-																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/ct/bt_defuse_bomb_if_far_away.kv3"
-																name = "DefuseBombIfFarAway"
 															},
 															{
 																type = "subtree"

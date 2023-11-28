@@ -1,51 +1,34 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	type = "decorator_sensor"
-	shape =
+	type = "decorator_picker_reaction_time"
+	input = "BombMemory"
+	output = "BombPosition"
+	child =
 	{
-		type = "sensor_shape_fov"
-	}
-	entity_type_filter = "CLASSNAME"
-	orphan_only = 1
-	output = "Bombs"
-	class_name = "weapon_c4"
-	priority = 1
-	child = 
-	{
-		type = "decorator_ranker_dist"
-		input = "Bombs"
+		type = "condition_is_empty"
+		input = "BombPosition"
+		negated = 1
 		child =
-		{
-			type = "decorator_picker_max_score"
-			input = "Bombs"
-			child =
-			{
-				type = "condition_is_empty"
-				input = "Bombs"
-				negated = 1
-				child =
-				{	
-					type = "sequencer"
-					children =
-					[		
-						{
-							type = "action_choose_random_waypoint_within_radius"
-							origin = "Bombs"
-							output = "BombPos"
-							radius = 200
-						},	
-						{
-							type = "action_move_to"
-							destination = "BombPos"
-							movement_type = "BT_ACTION_MOVETO_WALK"
-							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-							hiding_spot = "HidingSpot"
-							threat = "NearestThreatMemory"
-							nearest_area_distance_threshold = 20
-						}
-					]
+		{	
+			type = "sequencer"
+			children =
+			[		
+				{
+					type = "action_choose_random_waypoint_within_radius"
+					origin = "BombPosition"
+					output = "RandomBombPosition"
+					radius = 200
+				},	
+				{
+					type = "action_move_to"
+					destination = "RandomBombPosition"
+					movement_type = "BT_ACTION_MOVETO_WALK"
+					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+					hiding_spot = "HidingSpot"
+					threat = "NearestThreatMemory"
+					nearest_area_distance_threshold = 20
 				}
-			}
+			]
 		}
 	}
 }

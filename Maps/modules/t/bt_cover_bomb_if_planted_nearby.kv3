@@ -1,0 +1,56 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "decorator_sensor"
+	shape =
+	{
+		type = "sensor_shape_sphere"
+		radius = 150
+	}
+	entity_type_filter = "CLASSNAME"
+	orphan_only = 1
+	output = "CoverPlantedBombNearby"
+	class_name = "planted_c4"
+	priority = 1
+	child = 
+	{
+		type = "decorator_ranker_dist"
+		input = "CoverPlantedBombNearby"
+		child =
+		{
+			type = "decorator_picker_max_score"
+			input = "CoverPlantedBombNearby"
+			child =
+			{
+				type = "condition_is_empty"
+				input = "CoverPlantedBombNearby"
+				negated = 1
+				child =
+				{
+					type = "sequencer"
+					children =
+					[
+						{
+							type = "action_select_areas_within_radius"
+							input = "CoverPlantedBombNearby"
+							radius = 200
+							output = "RandomCoverNavzoneNearby"
+						},
+						{
+							type = "action_choose_random_waypoint"
+							input = "RandomCoverNavzoneNearby"
+							output = "RandomCoverPosNearby"
+						},
+						{
+							type = "action_move_to"
+							destination = "RandomCoverPosNearby"
+							movement_type = "BT_ACTION_MOVETO_WALK"
+							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+							hiding_spot = "HidingSpot"
+							threat = "NearestThreatMemory"
+						}
+					]
+				}
+			}
+		}
+	}
+}
