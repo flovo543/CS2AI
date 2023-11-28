@@ -269,6 +269,11 @@
 																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_owned.kv3"
 																name = "PlantIfOwned"
 															},
+															{															
+																type = "subtree"
+																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted_nearby.kv3"
+																name = "CoverIfPlantedNearby"			
+															},
 															{
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/general/bt_select_nearby_threat.kv3"
@@ -278,11 +283,6 @@
 																type = "subtree"
 																file = "ownscripts/CS2AI/Maps/modules/general/bt_investigate_closest_memorized_event.kv3"
 																name = "InvestigateClosestMemorizedEvent"
-															},
-															{															
-																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_cover_bomb_if_planted_nearby.kv3"
-																name = "CoverIfPlantedNearby"			
 															},
 															{															
 																type = "subtree"

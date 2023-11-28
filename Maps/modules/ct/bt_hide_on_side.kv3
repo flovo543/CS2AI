@@ -4,9 +4,31 @@
 	children =
 	[
 		{
-			type = "subtree"
-			file = "ownscripts/CS2AI/Maps/modules/general/bt_look_around.kv3"
-			name = "LookAround"
+			type = "decorator_random_approach_point"
+			output = "ApproachPoint"
 		},
+		{
+			type = "decorator_maybe"
+			chance = 0.5
+			child =
+			{
+				type = "action_move_to"
+				destination = "ApproachPoint"
+				movement_type = "BT_ACTION_MOVETO_WALK"
+				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+				hiding_spot = "HidingSpot"
+				threat = "NearestThreatMemory"
+				nearest_area_distance_threshold = 20
+			}
+		},
+		{
+			type = "action_move_to"
+			destination = "ApproachPoint"
+			movement_type = "BT_ACTION_MOVETO_WALK"
+			route_type = "BT_ACTION_MOVETO_SAFEST_ROUTE"
+			hiding_spot = "HidingSpot"
+			threat = "NearestThreatMemory"
+			nearest_area_distance_threshold = 20
+		}
 	]
 }

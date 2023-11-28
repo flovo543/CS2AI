@@ -28,6 +28,32 @@
 				output = "TargetPushArea"
 			}, 
 			{
+				type = "decorator_maybe"
+				chance = 0.1
+				child =
+				{
+					type = "sequencer"
+					children =
+					[
+						{
+							type = "action_choose_random_waypoint_within_radius"
+							origin = "TargetPushArea"
+							output = "HidePos"
+							radius = 4000
+						},
+						{
+							type = "action_move_to"
+							destination = "HidePos"
+							movement_type = "BT_ACTION_MOVETO_WALK"
+							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+							hiding_spot = "HidingSpot"
+							threat = "NearestThreatMemory"
+							nearest_area_distance_threshold = 20
+						}
+					]
+				}
+			},
+			{
 				type = "action_choose_random_waypoint_within_radius"
 				origin = "TargetPushArea"
 				output = "HidePos"
@@ -39,6 +65,7 @@
 				movement_type = "BT_ACTION_MOVETO_RUN"
 				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
 				hiding_spot = "HidingSpot"
+				threat = "NearestThreatMemory"
 				nearest_area_distance_threshold = 20
 			}
 		]

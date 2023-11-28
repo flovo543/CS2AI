@@ -46,7 +46,6 @@
 									hiding_spot = "HidingSpot"
 									threat = "NearestThreatMemory"
 									nearest_area_distance_threshold = 20
-									arrival_epsilon = 35
 								},
 								{
 									type = "action_look_at"
