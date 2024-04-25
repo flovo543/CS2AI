@@ -1,34 +1,38 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	type = "decorator_picker_reaction_time"
-	input = "BombMemory"
-	output = "BombPosition"
-	child =
+	type = "decorator_run_once"
+	child = 
 	{
-		type = "condition_is_empty"
-		input = "BombPosition"
-		negated = 1
+		type = "decorator_picker_reaction_time"
+		input = "BombMemory"
+		output = "BombPosition"
 		child =
-		{	
-			type = "sequencer"
-			children =
-			[		
-				{
-					type = "action_choose_random_waypoint_within_radius"
-					origin = "BombPosition"
-					output = "RandomBombPosition"
-					radius = 200
-				},	
-				{
-					type = "action_move_to"
-					destination = "RandomBombPosition"
-					movement_type = "BT_ACTION_MOVETO_WALK"
-					route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
-					hiding_spot = "HidingSpot"
-					threat = "NearestThreatMemory"
-					nearest_area_distance_threshold = 20
-				}
-			]
+		{
+			type = "condition_is_empty"
+			input = "BombPosition"
+			negated = 1
+			child =
+			{	
+				type = "sequencer"
+				children =
+				[		
+					{
+						type = "action_choose_random_waypoint_within_radius"
+						origin = "BombPosition"
+						output = "RandomBombPosition"
+						radius = 200
+					},	
+					{
+						type = "action_move_to"
+						destination = "RandomBombPosition"
+						movement_type = "BT_ACTION_MOVETO_WALK"
+						route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+						hiding_spot = "HidingSpot"
+						threat = "NearestThreatMemory"
+						nearest_area_distance_threshold = 20
+					}
+				]
+			}
 		}
 	}
 }
