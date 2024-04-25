@@ -36,7 +36,7 @@
 		aim_max_duration_deviation = 0.0
 		aim_punch_angle_reaction_chance = 0.99
 		look_around_awareness_yaw_range = 120
-		look_around_awareness_pitch_range = 20
+		look_around_awareness_pitch_range = 40
 		look_around_focus_interval = 0.4
 		look_around_focus_interval_deviation = 0.2
 		look_around_lerp_time = 0.15
