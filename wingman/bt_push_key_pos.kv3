@@ -1,0 +1,66 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "decorator_run_once"
+	child = 
+	{
+		type = "sequencer"
+		children =
+		[			
+			{
+				type = "action_equip_weapon"
+				weapon = "BEST"
+			},
+			{
+				type = "action_choose_bomb_site_area"
+				input = 0
+				output = "PushAreas"
+			},
+			{
+				type = "action_choose_random_waypoint"
+				input = "PushAreas"
+				output = "TargetPushArea"
+			}, 
+			{
+				type = "decorator_maybe"
+				chance = 0.1
+				child =
+				{
+					type = "sequencer"
+					children =
+					[
+						{
+							type = "action_choose_random_waypoint_within_radius"
+							origin = "TargetPushArea"
+							output = "HidePos"
+							radius = 4000
+						},
+						{
+							type = "action_move_to"
+							destination = "HidePos"
+							movement_type = "BT_ACTION_MOVETO_WALK"
+							route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+							hiding_spot = "HidingSpot"
+							threat = "NearestThreatMemory"
+							nearest_area_distance_threshold = 20
+						}
+					]
+				}
+			},
+			{
+				type = "action_choose_random_waypoint_within_radius"
+				origin = "TargetPushArea"
+				output = "HidePos"
+				radius = 400
+			},
+			{
+				type = "action_move_to"
+				destination = "HidePos"
+				movement_type = "BT_ACTION_MOVETO_RUN"
+				route_type = "BT_ACTION_MOVETO_FASTEST_ROUTE"
+				hiding_spot = "HidingSpot"
+				threat = "NearestThreatMemory"
+				nearest_area_distance_threshold = 20
+			}
+		]
+	}
+}
