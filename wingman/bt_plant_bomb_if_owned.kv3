@@ -1,0 +1,118 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	type = "selector"
+	children =
+	[
+		{
+			type = "condition_is_empty"
+			global = 1
+			input = "DontPlantBomb"
+			child =
+			{
+				type = "condition_owns_item"
+				item = "weapon_c4"
+				child =
+				{
+					type = "sequencer"
+					children =
+					[
+						{
+							type = "subtree"
+							file = "ownscripts/CS2AI/wingman/bt_push_bomb_plant_pos.kv3"
+							name = "PushBombPlantPos"
+						},
+						{
+							type = "condition_is_at_bomb_site"
+						},
+						{
+							type = "action_equip_item"
+							item = "weapon_c4"
+						},
+						{
+							type = "action_wait"
+							wait_time_min = 0.5
+							wait_time_max = 0.5
+						},
+						{
+							type = "parallel"
+							children =
+							[
+								{
+									//Fake-Plant
+									type = "decorator_maybe"
+									chance = 0.35
+									child =
+									{
+										type = "decorator_succeed"
+										child =
+										{
+											type = "condition_is_equal"
+											source = "NumberOfAliveTerrorists"
+											destination = 1
+											child =
+											{
+												type = "condition_is_greater_equal"
+												source = "NumberOfAliveCounterTerrorists"
+												destination = 1
+												child =
+												{
+													type = "sequencer"
+													children =
+													[																										
+														{
+															type = "action_wait"
+															wait_time_min = 0.7
+															wait_time_max = 0.8
+														},													
+														{
+															type = "action_equip_weapon"
+															weapon = "BEST"
+														},
+														{
+															type = "action_wait"
+															wait_time_min = 0.2
+															wait_time_max = 0.3
+														},
+														{
+															type = "action_set_global_flag"
+															name = "'DontPlantBomb'"
+															expiration_time_min = 2
+															expiration_time_max = 5
+														},
+													]
+												}
+											}
+										}
+									}
+								},
+								{
+									type = "decorator_repeat"
+									child =
+									{
+										type = "action_pull_trigger"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			type = "condition_is_empty"
+			global = 1
+			negated = 1
+			input = "DontPlantBomb"
+			child =
+			{
+				type = "decorator_repeat"
+				child =
+				{
+					type = "subtree"
+					file = "ownscripts/CS2AI/Maps/modules/general/bt_look_around.kv3"
+					name = "LookAround"
+				}
+			}
+		}
+	]
+}

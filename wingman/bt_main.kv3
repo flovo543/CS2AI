@@ -271,12 +271,12 @@
 															},															
 															{															
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_covered.kv3"
+																file = "ownscripts/CS2AI/wingman/bt_plant_bomb_if_covered.kv3"
 																name = "PlantIfCovered"			
 															},
 															{
 																type = "subtree"
-																file = "ownscripts/CS2AI/Maps/modules/t/bt_plant_bomb_if_owned.kv3"
+																file = "ownscripts/CS2AI/wingman/bt_plant_bomb_if_owned.kv3"
 																name = "PlantIfOwned"
 															},
 															{															
